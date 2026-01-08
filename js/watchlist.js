@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         try {
           const delRes = await fetch(
-            `http://localhost:5000/api/watchlist/${item.mediaType}/${item.tmdbId}`,
+            `https://subplot-server.onrender.com/api/watchlist/${item.mediaType}/${item.tmdbId}`,
             {
               method: "DELETE",
               headers: {

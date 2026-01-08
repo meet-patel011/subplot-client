@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const ratingValue = Number(btn.dataset.rating);
         const token = localStorage.getItem("accessToken");
 
-        await fetch("http://localhost:5000/api/reviews", {
+        await fetch("https://subplot-server.onrender.com/api/reviews", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!text) return;
 
       const token = localStorage.getItem("accessToken");
-      await fetch("http://localhost:5000/api/reviews", {
+      await fetch("https://subplot-server.onrender.com/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const token = localStorage.getItem("accessToken");
-    await fetch("http://localhost:5000/api/watchlist", {
+    await fetch("https://subplot-server.onrender.com/api/watchlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

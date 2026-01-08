@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const text = commentInput.value.trim();
         if (!text) return;
 
-        await fetch(`http://localhost:5000/api/comments/${p._id}`, {
+        await fetch(`https://subplot-server.onrender.com/api/comments/${p._id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   async function submitPost(content, media) {
-    await fetch("http://localhost:5000/api/posts", {
+    await fetch("https://subplot-server.onrender.com/api/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
