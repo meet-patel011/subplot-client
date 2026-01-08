@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* LOAD FEED */
   async function loadFeed() {
-    const res = await fetch("http://localhost:5000/api/posts");
+    const res = await fetch("https://subplot-server.onrender.com/api/posts");
     const data = await res.json();
     feed.innerHTML = "";
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* LOAD COMMENTS */
   async function loadComments(postId, container) {
-    const res = await fetch(`http://localhost:5000/api/comments/${postId}`);
+    const res = await fetch(`https://subplot-server.onrender.com/api/comments/${postId}`);
     const data = await res.json();
 
     container.innerHTML = "";

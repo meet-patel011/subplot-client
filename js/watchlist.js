@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const emptyState = document.getElementById("emptyState");
 
   try {
-    const res = await fetch("http://localhost:5000/api/watchlist", {
+    const res = await fetch("https://subplot-server.onrender.com/api/watchlist", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

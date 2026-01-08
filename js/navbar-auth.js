@@ -135,7 +135,7 @@ function showAvatarUploadPopup() {
       const token = localStorage.getItem("accessToken");
 
       try {
-        const res = await fetch("http://localhost:5000/api/user/avatar", {
+        const res = await fetch("https://subplot-server.onrender.com/api/user/avatar", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

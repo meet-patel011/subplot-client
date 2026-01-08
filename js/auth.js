@@ -10,7 +10,7 @@ async function checkAuth() {
       return null;
     }
 
-    const res = await fetch("http://localhost:5000/api/auth/me", {
+    const res = await fetch("https://subplot-server.onrender.com/api/auth/me", {
       headers: {
         "Authorization": `Bearer ${token}`
       }

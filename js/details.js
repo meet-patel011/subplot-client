@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   async function loadRatingBars() {
-    const res = await fetch(`http://localhost:5000/api/reviews/ratings/${type}/${id}`);
+    const res = await fetch(`https://subplot-server.onrender.com/api/reviews/ratings/${type}/${id}`);
     const data = await res.json();
 
     const ratings = data.ratings || {1:0,2:0,3:0,4:0};
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const commentsList = document.getElementById("commentsList");
 
   async function loadReviews() {
-    const res = await fetch(`http://localhost:5000/api/reviews/${type}/${id}`);
+    const res = await fetch(`https://subplot-server.onrender.com/api/reviews/${type}/${id}`);
     const data = await res.json();
 
     commentsList.innerHTML = "";
