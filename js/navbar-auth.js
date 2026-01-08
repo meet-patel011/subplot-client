@@ -137,7 +137,7 @@ function showAvatarUploadPopup() {
       try {
         const res = await fetch("https://subplot-server.onrender.com/api/user/avatar", {
           method: "PUT",
-          headers: {
+          headers: {  
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
           },
