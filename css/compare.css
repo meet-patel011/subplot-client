@@ -1,0 +1,135 @@
+.compare-page h1 {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.compare-sub {
+  color: #aaa;
+  margin-bottom: 32px;
+}
+
+.compare-select {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.compare-select input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: 1px solid #222;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 14px;
+}
+
+.compare-select span {
+  font-weight: 700;
+  color: #666;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.compare-card {
+  background: #0e0e0e;
+  border-radius: 18px;
+  padding: 22px;
+  border: 2px solid #1f1f1f;
+}
+
+.compare-poster {
+  width: 50%;
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.compare-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.compare-meta {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.compare-section {
+  margin-top: 18px;
+}
+
+.compare-section h4 {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.compare-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.compare-row span:last-child {
+  font-weight: 600;
+}
+
+.compare-page {
+  position: relative;
+  width: 100%;              
+  max-width: none;          
+  margin: 0;
+  padding: 90px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      120% 12% at 50% 0%,
+      rgba(310, 218, 315, 0.433),
+      rgba(134, 31, 218, 0.434),
+      rgba(11, 33, 156, 0.25) 45%,
+      transparent 75%
+    ),
+    linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+
+  background-size: 200% 200%;
+  animation: mainGlow 100s linear infinite;
+}
+
+@keyframes mainGlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 30%; }
+}
+
+Bottom fade
+.compare-page::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    #000
+  );
+}
+
+@media (max-width: 900px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}

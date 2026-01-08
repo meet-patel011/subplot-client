@@ -1,0 +1,79 @@
+
+.genre-results-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.genre-results-page h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+
+.genre-results-page .genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 22px;
+}
+
+
+.genre-results-page .card {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.genre-results-page .card:hover {
+  transform: translateY(-6px);
+}
+
+.genre-results-page .card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;     
+  object-fit: cover;
+  border-radius: 14px;
+  background: #111;
+}
+
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+
+  background:
+    radial-gradient(
+      100% 30% at 30% 0%,
+      rgba(120, 90, 255, 0.45),
+      rgba(30, 40, 120, 0.25) 45%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: mainGlow 80s linear infinite;
+}
+
+@keyframes mainGlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 15%;
+  }
+  100% {
+    background-position: 100% 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .genre-results-page {
+    padding: 30px 20px;
+  }
+
+  .genre-results-page h1 {
+    font-size: 26px;
+  }
+}

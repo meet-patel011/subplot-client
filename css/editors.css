@@ -1,0 +1,69 @@
+.editors-page h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.editors-subtitle {
+  color: #aaa;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.editors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  margin-right: 90px;
+}
+
+.editor-card {
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.editor-card:hover {
+  transform: scale(1.01);
+}
+
+.editor-card img {
+  width: 180px;
+  border-radius: 12px;
+  display: block;
+}
+
+.editor-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ddd;
+  text-align: center;
+}
+
+.editors-hero {
+  height: 50vh;
+  margin-bottom: 10px;
+
+  background:
+    radial-gradient(
+      70% 50% at 0% 30%,
+      rgba(148, 60, 220, 0.45),
+      rgba(11, 11, 156, 0.25) 45%,
+      transparent 95%
+    ),
+    linear-gradient(180deg, #1527ae6f 0%, #000000 100%);
+
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes glowMove {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+
+.editors-page {
+  margin-top: -90px;
+  padding: 0 90px 60px;
+  background-color: #0a0a0a;
+}

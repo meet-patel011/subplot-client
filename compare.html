@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compare | The Subplot</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/compare.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="The Subplot" />
+    </a>
+
+    <nav class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="watchlist.html" class="nav-link">Watchlist</a>
+    </nav>
+  </header>
+
+  <section class="compare-hero"></section>
+  <main class="compare-page">
+
+    <h1>Compare Movies</h1>
+    <p class="compare-sub">
+      Measure success beyond hype.
+    </p>
+
+    <!-- SEARCH / SELECT -->
+    <div class="compare-select">
+      <input id="leftInput" placeholder="Search first movie…" />
+      <span>VS</span>
+      <input id="rightInput" placeholder="Search second movie…" />
+    </div>
+
+    <!-- RESULTS -->
+    <div class="compare-grid">
+      <div class="compare-card" id="leftCard"></div>
+      <div class="compare-card" id="rightCard"></div>
+    </div>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/compare.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Social | The Subplot</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/social.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="logo">
+    <img src="assets/logo.png" />
+  </a>
+  <nav class="nav-right">
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<main class="social-page">
+
+  <section class="post-box">
+    <textarea id="postContent" placeholder="Share a movie thought, meme, or trailer…"></textarea>
+
+    <div class="media-row">
+      <input type="file" id="mediaFile" accept="image/*,video/*">
+      <input id="postMedia" placeholder="Or paste image / video URL">
+    </div>
+
+    <button id="postBtn">Post</button>
+
+    <p class="hint">
+      💡 Share memes, trailers, opinions • Login required to post
+    </p>
+  </section>
+
+  <section id="feed"></section>
+
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/social.js"></script>
+
+</body>
+</html>

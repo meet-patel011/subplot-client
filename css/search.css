@@ -1,0 +1,57 @@
+.search-page {
+  padding: 40px 6%;
+  min-height: 100vh;
+}
+
+.search-page h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+.search-grid .card {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-grid .card:hover {
+  transform: scale(1.06);
+}
+
+
+.search-grid .card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #111;
+}
+
+
+.search-grid .card h4 {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.3;
+}
+
+
+.search-grid .card .muted {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.search-grid p {
+  color: #aaa;
+  font-size: 16px;
+}

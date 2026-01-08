@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Details | The Subplot</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/details.css" />
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="The Subplot" />
+    </a>
+
+    <nav class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="watchlist.html" class="nav-link">Watchlist</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <img class="hero-poster" alt="Poster" />
+
+      <div class="hero-info">
+        <h1 class="hero-title">Loading...</h1>
+        <div class="hero-meta"></div>
+
+        <div class="hero-actions">
+          <button class="btn primary" id="heroTrailerBtn">▶ Watch Trailer</button>
+          <button class="btn secondary">＋ Watchlist</button>
+        </div>
+
+        <p class="hero-overview"></p>
+        <div class="hero-genres"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="details-section">
+    <h2>Ratings</h2>
+
+    <div class="rating-container">
+      <div class="rating-options">
+        <button class="rating-btn" data-rating="1">Not Recommended</button>
+        <button class="rating-btn" data-rating="2">Decent Watch</button>
+        <button class="rating-btn" data-rating="3">Strong Pick</button>
+        <button class="rating-btn" data-rating="4">Must Experience</button>
+      </div>
+
+      <div class="rating-meter">
+        <div class="meter-row">
+          <span>Not Recommended</span>
+          <div class="meter-bar"><div class="fill" id="fill-1" data-type="1"></div></div>
+        </div>
+        <div class="meter-row">
+          <span>Decent Watch</span>
+          <div class="meter-bar"><div class="fill" id="fill-2" data-type="2"></div></div>
+        </div>
+        <div class="meter-row">
+          <span>Strong Pick</span>
+          <div class="meter-bar"><div class="fill" id="fill-3" data-type="3"></div></div>
+        </div>
+        <div class="meter-row">
+          <span>Must Experience</span>
+          <div class="meter-bar"><div class="fill" id="fill-4" data-type="4"></div></div>
+        </div>
+      </div>
+
+      <p class="rating-note">
+        🔥 Rate this title to see the community verdict.
+      </p>
+    </div>
+  </section>
+
+  <section class="details-section" id="seasons-section">
+    <h2>Seasons</h2>
+    <div class="seasons-grid" id="seasons-row"></div>
+  </section>
+
+  <section class="details-section">
+    <h2>Cast</h2>
+    <div class="row" id="cast-row"></div>
+  </section>
+
+  <section class="details-section">
+    <h2>Crew</h2>
+    <div class="crew-list" id="crew-list"></div>
+  </section>
+
+  <div id="trailerModal" class="trailer-modal hidden">
+    <div class="trailer-box">
+      <button class="close-trailer">✕</button>
+      <iframe
+        id="trailerFrame"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <section class="details-section">
+    <h2>Reviews</h2>
+
+    <p class="spoiler-warning">
+      ⚠️ Reviews may contain spoilers.
+    </p>
+
+    <div class="review-box">
+      <textarea
+        id="commentInput"
+        placeholder="Share your thoughts about this movie or series..."
+      ></textarea>
+      <button id="commentSubmit">Post Review</button>
+    </div>
+
+    <div class="reviews-list" id="commentsList"></div>
+  </section>
+
+    <!-- RECOMMENDATIONS -->
+  <section class="details-section">
+    <h2>Recommended For You</h2>
+    <div class="row" id="recommendations-row"></div>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/details.js"></script>
+
+</body>
+</html>

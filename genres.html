@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Browse | The Subplot</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/genres.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Flicker Logo" />
+      </a>
+
+      <nav class="nav-right">
+
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="watchlist.html" class="nav-link">Watchlist</a>
+      </nav>
+    </header>
+
+    <main class="browse-container">
+      <h3 class="browse-title">Browse by Genre</h3>
+
+      <div class="genre-grid">
+        <div class="genre-card action" data-genre="action">Action</div>
+        <div class="genre-card comedy" data-genre="comedy">Comedy</div>
+        <div class="genre-card drama" data-genre="drama">Drama</div>
+        <div class="genre-card horror" data-genre="horror">Horror</div>
+        <div class="genre-card thriller" data-genre="thriller">Thriller</div>
+
+        <div class="genre-card informative" data-genre="informative">Informative</div>
+        <div class="genre-card mystery" data-genre="mystery">Mystery</div>
+        <div class="genre-card romance" data-genre="romance">Romance</div>
+        <div class="genre-card scifi" data-genre="sci-fi">Sci-Fi</div>
+        <div class="genre-card adventure" data-genre="adventure">Adventure</div>
+      </div>
+    </main>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/navbar-auth.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/genres.js"></script>
+
+  </body>
+</html>
