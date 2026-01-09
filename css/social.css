@@ -168,3 +168,33 @@
 .comment strong {
   font-size: 13px;
 }
+
+@media (max-width: 768px) {
+  .social-page {
+    padding: 20px;
+  }
+
+  .post {
+    padding: 14px;
+  }
+
+  .media-row {
+    flex-direction: column;
+  }
+
+  .comment-input {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .comment-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .post p {
+    font-size: 14px;
+  }
+}

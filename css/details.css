@@ -574,3 +574,60 @@
   color: #e5e7eb;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 24px;
+  }
+
+  .hero-poster {
+    width: 200px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .hero-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .details-section {
+    margin: 40px 16px;
+  }
+
+  .seasons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .rating-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-poster {
+    width: 180px;
+  }
+
+  .hero-overview {
+    font-size: 14px;
+  }
+}

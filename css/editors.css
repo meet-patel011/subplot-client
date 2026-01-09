@@ -67,3 +67,29 @@
   padding: 0 90px 60px;
   background-color: #0a0a0a;
 }
+
+@media (max-width: 768px) {
+  .editors-page {
+    padding: 0 20px 50px;
+    margin-top: -60px;
+  }
+
+  .editors-page h1 {
+    font-size: 26px;
+  }
+
+  .editors-grid {
+    margin-right: 0;
+    gap: 20px;
+  }
+
+  .editor-card img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .editors-hero {
+    height: 40vh;
+  }
+}

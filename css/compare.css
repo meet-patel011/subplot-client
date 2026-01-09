@@ -133,3 +133,36 @@ Bottom fade
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .compare-page {
+    padding: 40px 20px;
+  }
+
+  .compare-page h1 {
+    font-size: 26px;
+  }
+
+  .compare-select {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .compare-grid {
+    gap: 20px;
+  }
+
+  .compare-poster {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .compare-poster {
+    width: 85%;
+  }
+
+  .compare-title {
+    font-size: 18px;
+  }
+}

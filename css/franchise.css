@@ -166,3 +166,38 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .franchise-container {
+    padding: 30px 20px 80px;
+  }
+
+  .franchise-container h1 {
+    margin-left: 0;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .franchise-grid {
+    margin: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .franchise-results-page {
+    padding: 40px 20px;
+  }
+
+  .franchise-results-page h1 {
+    font-size: 26px;
+  }
+
+  .results-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .franchise-grid {
+    grid-template-columns: 1fr;
+  }
+}

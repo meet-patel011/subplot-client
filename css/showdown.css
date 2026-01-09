@@ -31,3 +31,25 @@
   color: var(--red);
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  .showdown-container {
+    padding: 30px 20px;
+  }
+
+  .showdown-box {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .slot {
+    height: 180px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .showdown-container h1 {
+    font-size: 24px;
+  }
+}

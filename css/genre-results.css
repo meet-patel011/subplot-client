@@ -74,6 +74,17 @@ body {
   }
 
   .genre-results-page h1 {
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  .genre-results-page .genre-grid {
+    gap: 18px;
   }
 }
+
+@media (max-width: 480px) {
+  .genre-results-page .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

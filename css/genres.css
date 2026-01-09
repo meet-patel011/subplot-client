@@ -94,5 +94,29 @@
   );
 }
 
+@media (max-width: 768px) {
+  .browse-title {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+
+  .genre-grid {
+    margin-left: 10px;
+    gap: 16px;
+  }
+
+  .genre-card {
+    height: 120px;
+    font-size: 18px;
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-card {
+    height: 110px;
+    font-size: 16px;
+  }
+}
 
 

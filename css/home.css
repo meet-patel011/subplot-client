@@ -280,13 +280,6 @@ main {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
-@media (max-width: 480px) {
-  .browse-dropdown.mega {
-    width: 92vw;
-    transform: translateX(-4vw);
-  }
-}
-
 .browse-title {
   font-size: 14px;
   color: #bbb;
@@ -379,3 +372,34 @@ main::after {
   );
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 30px 20px;
+  }
+
+  .home-search {
+    margin: 40px 20px;
+  }
+
+  .home-search input {
+    margin-right: 0;
+    padding-left: 44px;
+  }
+
+  .row {
+    gap: 12px;
+    min-height: 220px;
+  }
+
+  .card {
+    min-width: 140px;
+    max-width: 140px;
+    height: 210px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 17px;
+  }
+}

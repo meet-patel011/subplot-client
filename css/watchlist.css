@@ -54,3 +54,23 @@
   cursor: pointer;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .watchlist-page {
+    padding: 30px 20px;
+  }
+
+  .watchlist-page h1 {
+    font-size: 26px;
+  }
+
+  .watchlist-grid {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .watchlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

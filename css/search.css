@@ -55,3 +55,23 @@
   color: #aaa;
   font-size: 16px;
 }
+
+@media (max-width: 768px) {
+  .search-page {
+    padding: 30px 20px;
+  }
+
+  .search-page h2 {
+    font-size: 22px;
+  }
+
+  .search-grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

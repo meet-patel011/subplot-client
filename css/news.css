@@ -121,3 +121,32 @@
 @media (max-width: 650px) {
   .news-feed { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+  .news-navbar-inner {
+    padding: 0 20px;
+  }
+
+  .news-nav-links {
+    gap: 18px;
+    font-size: 14px;
+  }
+
+  .news-page {
+    padding: 30px 20px 60px;
+  }
+
+  .news-title {
+    font-size: 26px;
+  }
+
+  .news-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-title {
+    font-size: 22px;
+  }
+}
