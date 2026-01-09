@@ -389,30 +389,45 @@ main::after {
   }
 
   .logo img {
-    height: 90px;
+    height: 85px;
   }
 
   .home-search {
-    margin: 0;
     width: 100%;
+    margin: 0;
+    position: relative;
   }
 
   .home-search input {
     width: 100%;
-    margin: 0;
     padding: 10px 14px 10px 44px;
     font-size: 14px;
+    color: #ffffff;
+    caret-color: #ffffff;
+    direction: ltr;
+    text-align: left;
+    background: rgba(15, 15, 15, 0.95);
+  }
+
+  .home-search input::placeholder {
+    color: #aaaaaa;
+    opacity: 1;
   }
 
   .search-icon {
     left: 16px;
     font-size: 16px;
+    opacity: 0.8;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
+  }
+
+  .nav-right .nav-link[href*="watchlist"] {
+    display: none;
   }
 
   .nav-link,
@@ -423,12 +438,8 @@ main::after {
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    gap: 10px;
-  }
-
   .logo img {
-    height: 80px;
+    height: 75px;
   }
 
   .nav-right {
@@ -444,15 +455,64 @@ main::after {
 @media (max-width: 768px) {
   .browse-dropdown {
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
     min-width: 260px;
-    max-width: 92vw;
+    max-width: 94vw;
   }
 
   .browse-dropdown.mega {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    width: 92vw;
+    width: 94vw;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 20px 14px;
+  }
+
+  .section {
+    margin: 16px 0 28px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .row {
+    gap: 12px;
+    padding: 8px 0 14px;
+    min-height: 200px;
+  }
+
+  .card {
+    min-width: 120px;
+    max-width: 120px;
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .card img.poster {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    gap: 10px;
+  }
+
+  .card {
+    min-width: 105px;
+    max-width: 105px;
+    height: 160px;
+  }
+
+  .section-title {
+    font-size: 15px;
   }
 }
