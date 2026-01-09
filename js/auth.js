@@ -5,7 +5,16 @@ async function checkAuth() {
     const token = localStorage.getItem("accessToken");
 
     if (!token) {
-      window.AUTH_USER = null;
+      // window.AUTH_USER = null;
+      window.AUTH_USER = (() => {
+        try {
+          return JSON.parse(localStorage.getItem("user"));
+        } catch {
+          return null;
+        }
+      })();
+
+
       localStorage.removeItem("user");
       return null;
     }
@@ -37,8 +46,6 @@ async function checkAuth() {
     return null;
   }
 }
-
-
 
 // AUTH HELPERS
 function isLoggedIn() {

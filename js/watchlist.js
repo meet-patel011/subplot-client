@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             alt="${item.title}"
             loading="lazy"
             onload="this.previousElementSibling.style.display='none'"
-            onerror="this.style.display='none'"
+            onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
           />
         </div>
         <button class="remove-btn">✕</button>
