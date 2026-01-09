@@ -74,3 +74,27 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.watchlist-poster {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.watchlist-poster img {
+  width: 100%;
+  display: block;
+}
+
+.watchlist-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #888;
+  background: #000;
+}

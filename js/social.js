@@ -6,6 +6,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* LOAD FEED */
   async function loadFeed() {
+
+    // new code
+    const loader = document.getElementById("page-loader");
+
+    if (feed.children.length === 0) {
+      loader?.classList.remove("hidden");
+    }
+
+    setTimeout(() => {
+      if (feed.children.length === 0) {
+        loader.textContent = "Waking up server… please wait";
+      }
+    }, 4000);
+    // end new code
+
     const res = await fetch("https://subplot-server.onrender.com/api/posts");
     const data = await res.json();
     feed.innerHTML = "";
@@ -67,6 +82,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadComments(p._id, commentsContainer);
       });
     });
+
+    // new code
+    if (feed.children.length > 0) {
+      loader.classList.add("hidden");
+    }
+    // end new code
   }
 
   /* LOAD COMMENTS */

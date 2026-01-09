@@ -11,6 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // LOAD EDITOR PICKS (BACKEND CACHED)
 async function loadEditorsPicks(grid) {
+  // new code
+  const loader = document.getElementById("page-loader");
+
+  if (grid.children.length === 0) {
+    loader?.classList.remove("hidden");
+  }
+
+  setTimeout(() => {
+    if (grid.children.length === 0) {
+      loader.textContent = "Waking up server… please wait";
+    }
+  }, 4000);
+  // end new code
+
   try {
     const res = await fetch(`${BACKEND}/api/editors-picks`);
     const data = await res.json();
@@ -35,6 +49,12 @@ async function loadEditorsPicks(grid) {
 
       grid.appendChild(card);
     });
+
+    // new code
+    if (grid.children.length > 0) {
+      loader?.classList.add("hidden");
+    }
+    // end new code
 
   } catch (err) {
     console.error("Editors picks failed:", err);

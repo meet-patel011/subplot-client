@@ -1,37 +1,43 @@
 window.AUTH_USER = null;
 
-// CHECK AUTH (CALL ON PAGE LOAD)
 async function checkAuth() {
   try {
     const token = localStorage.getItem("accessToken");
-    
+
     if (!token) {
       window.AUTH_USER = null;
+      localStorage.removeItem("user");
       return null;
     }
 
     const res = await fetch("https://subplot-server.onrender.com/api/auth/me", {
       headers: {
-        "Authorization": `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     });
 
     if (!res.ok) {
       window.AUTH_USER = null;
       localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
       return null;
     }
 
     const data = await res.json();
+
     window.AUTH_USER = data.user;
+    localStorage.setItem("user", JSON.stringify(data.user));
+
     return data.user;
 
   } catch (err) {
     window.AUTH_USER = null;
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
     return null;
   }
 }
+
 
 
 // AUTH HELPERS

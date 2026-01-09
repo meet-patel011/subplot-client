@@ -6,6 +6,20 @@ async function loadNews() {
   const feed = document.getElementById("news-feed");
   feed.innerHTML = "";
 
+  // new code
+  const loader = document.getElementById("page-loader");
+
+  if (feed.children.length === 0) {
+    loader?.classList.remove("hidden");
+  }
+
+  setTimeout(() => {
+    if (feed.children.length === 0) {
+      loader.textContent = "Waking up server… please wait";
+    }
+  }, 4000);
+  // end new code
+
   const queries = [
     "movie casting",
     "film sequel announced",
@@ -61,6 +75,11 @@ async function loadNews() {
 
         feed.appendChild(card);
       });
+
+      if (feed.children.length > 0) {
+        loader?.classList.add("hidden");
+      }
+
 
   } catch (err) {
     feed.innerHTML = "<p style='color:#888'>Failed to load news.</p>";

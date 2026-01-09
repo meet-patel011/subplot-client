@@ -54,9 +54,28 @@ async function loadTrending() {
   const row = document.getElementById("trending-row");
   if (!row) return;
 
+  //new code
+  const loader = document.getElementById("page-loader");
+  const loaderText = document.getElementById("loader-text");
+
+  if (row.children.length === 0) {
+    loader?.classList.remove("hidden");
+    if (loaderText) loaderText.textContent = "Loading content…";
+  }
+  //end new code
+
+  //new code
+  setTimeout(() => {
+    if (row.children.length === 0) {
+      loaderText.textContent = "Waking up server… please wait";
+    }
+  }, 4000);
+  //end new code  
+
   row.innerHTML = "";
 
   try {
+
     const res = await fetch(`${BACKEND}/api/tmdb/trending`);
     const data = await res.json();
 
@@ -69,6 +88,12 @@ async function loadTrending() {
       const card = createCard(item);
       if (card) row.appendChild(card);
     });
+
+    // new code
+    if (row.children.length > 0) {
+      loader.classList.add("hidden");
+    }
+    //end new code
 
   } catch (err) {
     console.error("Failed to load trending", err);

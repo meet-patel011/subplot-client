@@ -36,10 +36,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("div");
       card.className = "watchlist-card";
 
+      // card.innerHTML = `
+      //   <img src="${item.poster}" alt="${item.title}" />
+      //   <button class="remove-btn">✕</button>
+      // `;
+
+      // new code
       card.innerHTML = `
-        <img src="${item.poster}" alt="${item.title}" />
+        <div class="watchlist-poster">
+          <span class="watchlist-fallback">Loading…</span>
+          <img
+            src="${item.poster}"
+            alt="${item.title}"
+            loading="lazy"
+            onload="this.previousElementSibling.style.display='none'"
+            onerror="this.style.display='none'"
+          />
+        </div>
         <button class="remove-btn">✕</button>
       `;
+      // end new code
 
       // Go to details page
       card.addEventListener("click", () => {

@@ -198,3 +198,14 @@
     font-size: 14px;
   }
 }
+
+.page-loader {
+  padding: 30px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.page-loader.hidden {
+  display: none;
+}

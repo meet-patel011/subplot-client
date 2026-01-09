@@ -400,7 +400,7 @@ main::after {
 
   .home-search {
     width: 100%;
-    margin-top: 4px;
+    /* margin-top: 4px; */
     position: relative;
   }
 
@@ -428,6 +428,7 @@ main::after {
     gap: 12px;
   }
 
+  
   .nav-right .nav-link[href*="watchlist"] {
     display: none;
   }
@@ -440,13 +441,23 @@ main::after {
   }
 }
 
+@media (max-width: 768px) {
+  .nav-right .nav-link[href*="login"] {
+    display: none;
+  }
+
+  .home-search {
+    margin-top: 8px;
+  }
+}
+
 @media (max-width: 480px) {
   .logo img {
     height: 54px;
   }
 
   .home-search {
-    margin-top: 6px;
+    margin-top: 10px;
   }
 
   .nav-right {
@@ -517,4 +528,16 @@ main::after {
   .section-title {
     font-size: 15px;
   }
+}
+
+.page-loader {
+  width: 100%;
+  padding: 30px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.page-loader.hidden {
+  display: none;
 }
