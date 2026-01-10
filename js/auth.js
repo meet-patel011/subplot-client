@@ -63,3 +63,16 @@ function logout() {
   window.AUTH_USER = null;
   window.location.href = "index.html";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("accessToken");
+  if (!token) return;
+
+  const loginLinks = document.querySelectorAll(
+    'a[href*="login"], .login-btn'
+  );
+
+  loginLinks.forEach(el => {
+    el.style.display = "none";
+  });
+});

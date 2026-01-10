@@ -58,15 +58,29 @@
 
 @media (max-width: 768px) {
   .search-page {
-    padding: 30px 20px;
+    padding: 72px 16px 40px;
+    min-height: 100vh;
   }
-
   .search-page h2 {
     font-size: 22px;
+    margin-bottom: 24px;
   }
-
   .search-grid {
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .search-grid .card img {
+    border-radius: 12px;
+  }
+  .search-grid .card h4 {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .search-grid .card .muted {
+    font-size: 11px;
+  }
+  .search-grid p {
+    font-size: 15px;
   }
 }
 

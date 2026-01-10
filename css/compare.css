@@ -136,33 +136,50 @@ Bottom fade
 
 @media (max-width: 768px) {
   .compare-page {
-    padding: 40px 20px;
+    padding: 72px 16px 40px;
   }
-
   .compare-page h1 {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 8px;
   }
-
+  .compare-sub {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
   .compare-select {
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 28px;
   }
-
+  .compare-select input {
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
   .compare-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
-
-  .compare-poster {
-    width: 70%;
+  .compare-card {
+    padding: 18px;
+    border-radius: 16px;
   }
-}
-
-@media (max-width: 480px) {
   .compare-poster {
-    width: 85%;
+    width: 60%;
+    margin-bottom: 16px;
   }
-
   .compare-title {
     font-size: 18px;
+  }
+  .compare-meta {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .compare-section {
+    margin-top: 16px;
+  }
+  .compare-row {
+    font-size: 13px;
+    padding: 8px 0;
   }
 }

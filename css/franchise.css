@@ -169,35 +169,48 @@
 
 @media (max-width: 768px) {
   .franchise-container {
-    padding: 30px 20px 80px;
+    padding: 72px 16px 60px;
   }
-
   .franchise-container h1 {
-    margin-left: 0;
     font-size: 22px;
-    text-align: center;
+    margin-left: 0;
+    margin-bottom: 24px;
   }
-
-  .franchise-grid {
-    margin: 0;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .franchise-results-page {
-    padding: 40px 20px;
-  }
-
-  .franchise-results-page h1 {
-    font-size: 26px;
-  }
-
-  .results-grid {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
   .franchise-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .franchise-banner {
+    height: 160px;
+    border-radius: 12px;
+  }
+  .banner-overlay {
+    padding: 16px;
+  }
+  .banner-overlay h2 {
+    font-size: 14px;
+  }
+  .franchise-results-page {
+    padding: 72px 16px 40px;
+  }
+  .franchise-results-page h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .franchise-note {
+    margin: 24px 0 28px;
+    font-size: 13px;
+  }
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .results-grid .card {
+    border-radius: 12px;
+  }
+  .results-grid img {
+    border-radius: 12px;
   }
 }

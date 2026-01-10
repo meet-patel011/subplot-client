@@ -34,17 +34,25 @@
 
 @media (max-width: 768px) {
   .showdown-container {
-    padding: 30px 20px;
+    padding: 72px 16px 40px;
   }
-
+  .showdown-container h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
   .showdown-box {
     flex-direction: column;
     gap: 16px;
+    margin-top: 32px;
   }
-
   .slot {
-    height: 180px;
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
     font-size: 16px;
+  }
+  .vs {
+    font-size: 22px;
   }
 }
 
