@@ -85,3 +85,11 @@ document.getElementById("rightInput").addEventListener("keydown", e => {
     fetchDetails(e.target.value, document.getElementById("rightCard"));
   }
 });
+
+document.getElementById("leftInput").addEventListener("change", e => {
+  fetchDetails(e.target.value, document.getElementById("leftCard"));
+});
+
+document.getElementById("rightInput").addEventListener("change", e => {
+  fetchDetails(e.target.value, document.getElementById("rightCard"));
+});

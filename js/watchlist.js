@@ -36,26 +36,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("div");
       card.className = "watchlist-card";
 
-      // card.innerHTML = `
-      //   <img src="${item.poster}" alt="${item.title}" />
-      //   <button class="remove-btn">✕</button>
-      // `;
-
-      // new code
+      const posterUrl = item.poster || '';
+      const hasValidPoster = posterUrl && !posterUrl.includes('null');
+      
       card.innerHTML = `
         <div class="watchlist-poster">
-          <span class="watchlist-fallback">Loading…</span>
-          <img
-            src="${item.poster}"
-            alt="${item.title}"
-            loading="lazy"
-            onload="this.previousElementSibling.style.display='none'"
-            onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
-          />
+          ${hasValidPoster ? `
+            <img
+              src="${posterUrl}"
+              alt="${item.title}"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            />
+            <span class="watchlist-fallback" style="display:none;">No Image</span>
+          ` : `
+            <span class="watchlist-fallback">No Image</span>
+          `}
         </div>
         <button class="remove-btn">✕</button>
       `;
-      // end new code
 
       // Go to details page
       card.addEventListener("click", () => {
