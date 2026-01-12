@@ -7,6 +7,23 @@
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
+body {
+    background:
+    radial-gradient(
+      1200px 500px at top center,
+      rgba(75, 207, 9, 0.365),
+      rgba(0, 0, 0, 0.95)
+    ),
+    linear-gradient(
+      to bottom,
+      #0e0e11 0%,
+      #0b0b0d 40%,
+      #000 100%
+    );
+
+  animation: bgFade 1.2s ease-out;
+}
+
 .news-navbar-inner {
   margin: 0 auto;
   height: 100%;

@@ -152,6 +152,27 @@ async function loadByProvider(providerId, rowId) {
   }
 }
 
+// Youtube
+const youtubeRow = document.getElementById("youtube-row");
+
+if (youtubeRow && Array.isArray(YOUTUBE_MOVIES)) {
+  YOUTUBE_MOVIES.slice(0, 15).forEach(movie => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img class="poster" src="${movie.poster}" alt="${movie.title}" />
+    `;
+
+    card.addEventListener("click", () => {
+      window.location.href =
+        `details.html?id=${movie.id}&type=youtube`;
+    });
+
+    youtubeRow.appendChild(card);
+  });
+}
+
 /* BOLLYWOOD */
 async function loadBollywood() {
   const row = document.getElementById("bollywood-row");

@@ -26,6 +26,54 @@ document.addEventListener("DOMContentLoaded", async () => {
   const castRow = document.getElementById("cast-row");
   const crewList = document.getElementById("crew-list");
 
+  // youtube content
+  if (type === "youtube") {
+    const movie = Array.isArray(YOUTUBE_MOVIES)
+      ? YOUTUBE_MOVIES.find(m => m.id === id)
+      : null;
+
+    if (!movie) {
+      console.error("YouTube movie not found");
+      return;
+    }
+
+    heroBg.style.background = "#000";
+    posterEl.src = movie.poster;
+    titleEl.textContent = movie.title;
+
+    metaEl.innerHTML = `
+      <span>${movie.language}</span>
+      <span>•</span>
+      <span>${movie.industry}</span>
+      <span>•</span>
+      <span>Free on YouTube</span>
+    `;
+
+    overviewEl.textContent = "";
+    genresEl.innerHTML = "";
+
+    seasonsSection && (seasonsSection.style.display = "none");
+
+    document.querySelectorAll(".details-section").forEach(sec => {
+      sec.style.display = "none";
+    });
+
+    const watchlistBtn = document.querySelector(".btn.secondary");
+    if (watchlistBtn) watchlistBtn.style.display = "none";
+
+    const trailerBtn = document.getElementById("heroTrailerBtn");
+    if (trailerBtn) {
+      trailerBtn.textContent = "▶ Watch Full Movie on YouTube";
+
+      trailerBtn.onclick = () => {
+        window.location.href = movie.youtubeUrl;
+
+      };
+    }
+    return;
+  }
+
+
   /* FETCH MAIN DETAILS */
   async function fetchDetails() {
     try {
@@ -120,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const trailerFrame = document.getElementById("trailerFrame");
   const closeTrailer = document.querySelector(".close-trailer");
 
-  if (trailerBtn) {
+  if (trailerBtn && type !== "youtube") {
     trailerBtn.addEventListener("click", async () => {
       try {
         const res = await fetch(`${BACKEND}/api/tmdb/details/${type}/${id}/videos`);
@@ -336,10 +384,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, { passive: false });
   }
 
-  fetchDetails();
-  fetchCast();
-  fetchRecommendations();
-  loadRatingBars();
-  loadReviews();
-
+  if (type !== "youtube") {
+    fetchDetails();
+    fetchCast();
+    fetchRecommendations();
+    loadRatingBars();
+    loadReviews();
+  }  
 });

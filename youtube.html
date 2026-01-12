@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Watch Free on YouTube | The Subplot</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/franchise.css" />
+  <link rel="stylesheet" href="css/youtube.css" />
+
+
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <style>
+    .news-nav-right a {
+      color: #fff;
+      text-decoration: none;
+      background: none;
+      font-weight: 500;
+    }
+
+    .news-nav-right a:hover {
+      color: #e50914;
+    }
+  </style>
+  
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHBMXHHVVP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EHBMXHHVVP');
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="The Subplot" />
+    </a>
+
+    <nav class="news-nav-right">
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="youtube-page"><br>
+    <h1>Watch Free on YouTube</h1>
+    <p class="youtube-sub">
+      Hindi, South Dubbed & Gujarati movies available legally on YouTube
+    </p>
+
+    <div class="youtube-grid" id="youtubeGrid"></div>
+  </main>
+
+  <script src="js/youtubeMovies.js"></script>
+  <script src="js/youtubePage.js"></script>
+
+</body>
+</html>
