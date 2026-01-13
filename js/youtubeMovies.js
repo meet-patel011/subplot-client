@@ -209,23 +209,73 @@ const YOUTUBE_MOVIES = [
     provider: "youtube"
   },
   
-  // {
-  //   id: "yt_013",
-  //   title: "Maargan",
-  //   language: "Hindi",
-  //   industry: "South Cinema",
-  //   poster: "assets/youtube/maargan.avif",
-  //   youtubeUrl: "https://youtu.be/HMW3OeNif5k?si=KBG3_SzZPShToepv",
-  //   provider: "youtube"
-  // },
+  {
+    id: "yt_022",
+    title: "Trigger Raja",
+    language: "Hindi",
+    industry: "South Cinema",
+    poster: "assets/youtube/trigger.jpg",
+    youtubeUrl: "https://youtu.be/M4g3lrLdhNI?si=78h4OKHgI7K7Z7CL",
+    provider: "youtube"
+  },
   
-  // {
-  //   id: "yt_013",
-  //   title: "Maargan",
-  //   language: "Hindi",
-  //   industry: "South Cinema",
-  //   poster: "assets/youtube/maargan.avif",
-  //   youtubeUrl: "https://youtu.be/HMW3OeNif5k?si=KBG3_SzZPShToepv",
-  //   provider: "youtube"
-  // }  
+  {
+    id: "yt_023",
+    title: "Manjhi",
+    language: "Hindi",
+    industry: "Bollywood",
+    poster: "assets/youtube/manjhi.jpg",
+    youtubeUrl: "https://youtu.be/rdbX0jMReKs?si=KQvsN3h_4vqo4zQq",
+    provider: "youtube"
+  },  
+
+  {
+    id: "yt_024",
+    title: "Jab We Met",
+    language: "Hindi",
+    industry: "Bollywood",
+    poster: "assets/youtube/jwm.jpg",
+    youtubeUrl: "https://youtu.be/sosEqOCgYNQ?si=IafxIjypo5xlhTsE",
+    provider: "youtube"
+  },  
+
+  {
+    id: "yt_025",
+    title: "Chef",
+    language: "Hindi",
+    industry: "Bollywood",
+    poster: "assets/youtube/chef.jpg",
+    youtubeUrl: "https://youtu.be/7-CVE7ixwOo?si=Nu4IPxHEk6Y3IDcc",
+    provider: "youtube"
+  },  
+
+  {
+    id: "yt_026",
+    title: "Raabta",
+    language: "Hindi",
+    industry: "Bollywood",
+    poster: "assets/youtube/raabta.avif",
+    youtubeUrl: "https://youtu.be/Iy-6jmQCcrI?si=27A8CNfcQBqNGOEZ",
+    provider: "youtube"
+  }, 
+
+  {
+    id: "yt_027",
+    title: "Bhool Bhulaiyaa",
+    language: "Hindi",
+    industry: "Bollywood",
+    poster: "assets/youtube/bhool.jpg",
+    youtubeUrl: "https://youtu.be/jzYxbnHHhY4?si=urcfOEanpumZLx_A",
+    provider: "youtube"
+  },  
+
+  {
+    id: "yt_028",
+    title: "Bicchugathi",
+    language: "Hindi",
+    industry: "South Cinema",
+    poster: "assets/youtube/bicchugathi.jpg",
+    youtubeUrl: "https://youtu.be/vf_cOo2NzFM?si=wwM0wDAEAdcQ60Em",
+    provider: "youtube"
+  }  
 ];

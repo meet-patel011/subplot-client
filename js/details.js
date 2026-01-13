@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const res = await fetch(`${BACKEND}/api/tmdb/details/${type}/${id}?language=en-US`);
       const data = await res.json();
+      window.__TMDB_DATA__ = data;
+
 
       if (data.backdrop_path) {
         heroBg.style.backgroundImage = `url(${IMG_BACKDROP}${data.backdrop_path})`;
@@ -215,11 +217,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     4: document.getElementById("fill-4")
   };
 
+  function getDefaultRatingsFromTMDB(tmdbData) {
+    const avg = tmdbData?.vote_average || 0;
+    const votes = tmdbData?.vote_count || 0;
+
+    if (avg >= 8 && votes > 1000) {
+      return { 1: 4, 2: 12, 3: 39, 4: 50 };
+    }
+
+    if (avg >= 7) {
+      return { 1: 10, 2: 25, 3: 40, 4: 25 };
+    }
+
+    if (avg >= 6) {
+      return { 1: 18, 2: 42, 3: 30, 4: 10 };
+    }
+
+    return { 1: 30, 2: 40, 3: 20, 4: 10 };
+  }
+
+
   async function loadRatingBars() {
     const res = await fetch(`https://subplot-server.onrender.com/api/reviews/ratings/${type}/${id}`);
     const data = await res.json();
 
-    const ratings = data.ratings || {1:0,2:0,3:0,4:0};
+    const realRatings = data.ratings || {1:0,2:0,3:0,4:0};
+    const defaults = window.__TMDB_DATA__
+      ? getDefaultRatingsFromTMDB(window.__TMDB_DATA__)
+      : {1:0,2:0,3:0,4:0};
+
+    const ratings = {
+      1: (defaults[1] || 0) + (realRatings[1] || 0),
+      2: (defaults[2] || 0) + (realRatings[2] || 0),
+      3: (defaults[3] || 0) + (realRatings[3] || 0),
+      4: (defaults[4] || 0) + (realRatings[4] || 0)
+    };
+
     const total = Object.values(ratings).reduce((a,b)=>a+b,0) || 1;
 
     Object.keys(fills).forEach(k => {
