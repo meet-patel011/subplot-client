@@ -169,6 +169,17 @@ document.addEventListener("DOMContentLoaded", async () => {
           crewList.appendChild(div);
         });
 
+        // ✅ REMOVE CAST SECTION ONLY IF EMPTY
+        if (castRow.children.length === 0) {
+          castRow.closest(".details-section")?.remove();
+        }
+
+        // ✅ REMOVE CREW SECTION ONLY IF EMPTY
+        if (crewList.children.length === 0) {
+          crewList.closest(".details-section")?.remove();
+        }
+
+
     } catch (err) {
       console.error("Failed to load cast & crew:", err);
     }
@@ -442,3 +453,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadReviews();
   }  
 });
+
