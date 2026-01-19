@@ -95,6 +95,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         <span>${type === "tv" ? "TV Series" : "Movie"}</span>
       `;
 
+      const releaseDate = data.release_date || data.first_air_date;
+      const isReleased = releaseDate && new Date(releaseDate) <= new Date();
+
+      if (!isReleased) {
+        // removes entire ratings section with title
+        const ratingsSection = document.querySelector(".details-section:has(.rating-container)");
+        ratingsSection?.remove();
+      }
+
+
       overviewEl.textContent = data.overview || "No description available.";
 
       genresEl.innerHTML = "";
@@ -392,7 +402,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const res = await fetch(`${BACKEND}/api/tmdb/details/${type}/${id}/recommendations`);
     const data = await res.json();
-    if (!data.results) return;
+    if (!data.results || data.results.length === 0) {
+      // remove whole recommendations section (title + row)
+      document.getElementById("recommendations-row")
+        ?.closest(".details-section")
+        ?.remove();
+      return;
+    }
+
 
     row.innerHTML = "";
 
@@ -418,7 +435,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   if (type !== "youtube") {
-    fetchDetails();
+    await fetchDetails();
     fetchCast();
     fetchRecommendations();
     loadRatingBars();

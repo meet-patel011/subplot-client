@@ -15,7 +15,7 @@ async function loadNews() {
 
   setTimeout(() => {
     if (feed.children.length === 0) {
-      loader.textContent = "Waking up server… please wait";
+      loader.textContent = "Waking up server may take few minutes… please wait";
     }
   }, 4000);
   // end new code
@@ -82,7 +82,7 @@ async function loadNews() {
 
 
   } catch (err) {
-    feed.innerHTML = "<p style='color:#888'>Failed to load news.</p>";
+    feed.innerHTML = "<p style='color:#888'>Server is busy. Can't load news currently.</p>";
     console.error(err);
   }
 }

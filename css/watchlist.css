@@ -73,25 +73,45 @@
 .watchlist-poster {
   position: relative;
   width: 100%;
-  background: #000;
+  height: 240px;              
+  background: #111;
   border-radius: 12px;
   overflow: hidden;
+  font-size: 0;
 }
+
 
 .watchlist-poster img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+.watchlist-title {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #e5e5e5;
+  text-align: center;
+  line-height: 1.35;
+  min-height: 38px;        
+  max-width: 100%;
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .watchlist-fallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: #888;
-  background: #000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #1a1a1a,
+    #0f0f0f
+  );
+  border-radius: 12px;
 }
 
 /* mobile ui */
@@ -123,6 +143,7 @@
   }
   .watchlist-poster {
     border-radius: 12px;
+    height: 220px;
   }
   .watchlist-fallback {
     font-size: 12px;

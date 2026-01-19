@@ -20,7 +20,7 @@ async function loadEditorsPicks(grid) {
 
   setTimeout(() => {
     if (grid.children.length === 0) {
-      loader.textContent = "Waking up server… please wait";
+      loader.textContent = "Waking up server may take few minutes… please wait";
     }
   }, 4000);
   // end new code

@@ -24,7 +24,7 @@ body {
 
 .genre-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
   max-width: 97%;
   margin-left: 20px;
@@ -79,27 +79,36 @@ body {
 @media (max-width: 768px) {
   .browse-title {
     font-size: 22px;
-    margin: 72px 16px 24px;
+    margin: 72px 16px 20px;
+    text-align: left;
   }
+
   .genre-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
     margin: 0 16px;
   }
+
   .genre-card {
-    height: 120px;
+    height: 140px;
     font-size: 18px;
-    padding: 32px 20px;
-    border-radius: 12px;
+    padding: 24px 16px;
+    border-radius: 14px;
   }
 }
 
 @media (max-width: 480px) {
+  .genre-grid {
+    gap: 14px;
+  }
+
   .genre-card {
-    height: 110px;
-    font-size: 16px;
+    height: 130px;
+    font-size: 17px;
+    padding: 22px 14px;
   }
 }
+
 
 
