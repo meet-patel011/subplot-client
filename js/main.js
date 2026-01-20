@@ -418,19 +418,19 @@ async function fetchMood(mood) {
     const prev = getSavedSelection();
     const prevIds = prev?.items?.map(i => i.id) || [];
 
-    /* HOLLYWOOD: Netflix + Prime + Hotstar */
+    /* HOLLYWOOD */
     const hollywoodPool = [
       ...netflixData.results,
       ...primeData.results,
       ...hotstarData.results
     ].filter(item =>
       item.original_language === "en" &&
-      item.vote_average >= 5 &&
+      item.vote_average >= 4 &&
       (!genreId || item.genre_ids?.includes(genreId)) &&
       !prevIds.includes(item.id)
     );
 
-    /* BOLLYWOOD: Multiple sources */
+    /* BOLLYWOOD */
     const bollywoodPool = [
       ...bollywoodData.results,
       ...hotstarData.results.filter(i => i.original_language === "hi"),
@@ -502,4 +502,226 @@ changeBtn?.addEventListener("click", () => {
     loadDefaultPicks();
   }
 })();
+
+/* PICK ONE (A vs B) */
+const PICK_ONE_INTERVAL = 12 * 60 * 60 * 1000;
+const IMG_BASE = "https://image.tmdb.org/t/p/w500";
+
+/* SLOT */
+function getSlot() {
+  return Math.floor(Date.now() / PICK_ONE_INTERVAL);
+}
+
+/* USER */
+function getUser() {
+  try {
+    return JSON.parse(localStorage.getItem("user"));
+  } catch {
+    return null;
+  }
+}
+
+function getUserKey() {
+  const user = getUser();
+  if (user && user.id) return `user_${user.id}`;
+
+  let guest = localStorage.getItem("guest_id");
+  if (!guest) {
+    guest = `guest_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    localStorage.setItem("guest_id", guest);
+  }
+  return guest;
+}
+
+/* GLOBAL PAIR */
+function getGlobalPair() {
+  const raw = localStorage.getItem("pick_one_global");
+  if (!raw) return null;
+
+  const data = JSON.parse(raw);
+  if (data.slot === getSlot()) return data.movies;
+  return null;
+}
+
+function saveGlobalPair(movies) {
+  localStorage.setItem(
+    "pick_one_global",
+    JSON.stringify({
+      slot: getSlot(),
+      movies
+    })
+  );
+}
+
+/* USER SELECTION */
+function getUserSelection(pairId) {
+  return localStorage.getItem(
+    `pick_one_${getUserKey()}_${getSlot()}_${pairId}`
+  );
+}
+
+function saveUserSelection(pairId, movieId) {
+  localStorage.setItem(
+    `pick_one_${getUserKey()}_${getSlot()}_${pairId}`,
+    movieId.toString()
+  );
+}
+
+/* HELPERS */
+function pairId(a, b) {
+  return `${a.id}_${b.id}`;
+}
+
+/* FETCH FROM BACKEND ONLY */
+async function fetchBollywoodPool() {
+  try {
+    const res = await fetch(`${BACKEND}/api/tmdb/bollywood`);
+    const data = await res.json();
+    return Array.isArray(data.results) ? data.results : [];
+  } catch {
+    return [];
+  }
+}
+
+function pickRandomPair(pool) {
+  const valid = pool.filter(m => m.poster_path);
+  if (valid.length < 2) return null;
+  return valid.sort(() => 0.5 - Math.random()).slice(0, 2);
+}
+
+/* RENDER */
+function renderPickOne(movies, selectedId) {
+  const container = document.getElementById("pickOneContainer");
+  const note = document.getElementById("pickOneNote");
+
+  container.innerHTML = "";
+  note.classList.add("hidden");
+
+  const pid = pairId(movies[0], movies[1]);
+
+  movies.forEach(movie => {
+    const card = document.createElement("div");
+    card.className = "pick-one-card";
+
+    if (selectedId) {
+      card.classList.add(
+        movie.id.toString() === selectedId ? "selected" : "faded"
+      );
+    }
+
+    card.innerHTML = `
+      <img class="pick-one-poster" src="${IMG_BASE}${movie.poster_path}" />
+      <div class="pick-one-info">
+        <h4>${movie.title}</h4>
+        <span>${movie.release_date?.split("-")[0] || "—"} • Film</span>
+      </div>
+    `;
+
+    card.onclick = () => {
+      if (selectedId) return;
+      saveUserSelection(pid, movie.id);
+      renderPickOne(movies, movie.id.toString());
+      note.classList.remove("hidden");
+    };
+
+    container.appendChild(card);
+  });
+}
+
+/* INIT */
+async function initPickOne() {
+  const container = document.getElementById("pickOneContainer");
+  if (!container) return;
+
+  let movies = getGlobalPair();
+
+  if (!movies) {
+    const pool = await fetchBollywoodPool();
+    const picked = pickRandomPair(pool);
+    if (!picked) return;
+    movies = picked;
+    saveGlobalPair(movies);
+  }
+
+  const selected = getUserSelection(pairId(movies[0], movies[1]));
+  renderPickOne(movies, selected);
+}
+
+initPickOne();
+
+// News section
+const HOMEPAGE_NEWS_KEY = "homepage_top_news_v1";
+const HOMEPAGE_NEWS_TTL = 6 * 60 * 60 * 1000;
+
+async function loadHomepageNews() {
+  const grid = document.getElementById("featuredNewsGrid");
+  if (!grid) return;
+
+  let cached;
+
+  try {
+    cached = JSON.parse(localStorage.getItem(HOMEPAGE_NEWS_KEY));
+  } catch {
+    cached = null;
+  }
+
+  if (cached && Date.now() - cached.time < HOMEPAGE_NEWS_TTL) {
+    renderHomepageNews(cached.articles);
+    return;
+  }
+
+  try {
+    const res = await fetch(`${BACKEND}/api/news/top`);
+    const data = await res.json();
+
+    if (!Array.isArray(data?.articles)) return;
+
+    const articles = data.articles
+      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+      .slice(0, 2);
+
+    localStorage.setItem(
+      HOMEPAGE_NEWS_KEY,
+      JSON.stringify({
+        time: Date.now(),
+        articles
+      })
+    );
+
+    renderHomepageNews(articles);
+
+  } catch (err) {
+    console.error("Homepage news failed", err);
+  }
+}
+
+function renderHomepageNews(articles) {
+  const grid = document.getElementById("featuredNewsGrid");
+  grid.innerHTML = "";
+
+  articles.forEach(article => {
+    const card = document.createElement("div");
+    card.className = "featured-news-card";
+
+    card.innerHTML = `
+      <img
+        src="${article.image || 'assets/placeholder-news.jpg'}"
+        alt="${article.title}"
+      />
+      <div class="featured-news-content">
+        <span class="news-source">${article.source?.name || "News"}</span>
+        <h4>${article.title}</h4>
+        <p>${article.description || ""}</p>
+      </div>
+    `;
+
+    card.onclick = () => {
+      window.location.href = "news.html";
+    };
+
+    grid.appendChild(card);
+  });
+}
+
+loadHomepageNews();
 
