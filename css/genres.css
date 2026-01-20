@@ -30,18 +30,48 @@ body {
   margin-left: 20px;
 }
 
-@media (max-width: 900px) {
-  .genre-grid {
-    grid-template-columns: repeat(3, 1fr);
+/* Navbar Mobile Enhancement */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 20px;
+    height: auto;
+    min-height: 64px;
+  }
+
+  .logo img {
+    height: 36px;
+  }
+
+  .nav-right {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    font-weight: 500;
   }
 }
 
-@media (max-width: 600px) {
-  .genre-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 16px;
+    min-height: 100px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .nav-right {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 15px;
   }
 }
 
+/* Genre Grid - Force 2 Columns on Mobile */
 .genre-card {
   height: 150px;
   border-radius: 12px;
@@ -51,11 +81,6 @@ body {
   justify-content: center;
 
   background: rgba(123, 40, 10, 0.781); 
-  /* linear-gradient(
-    145deg,
-    #10215a,
-    #73185e 
-  ); */
 
   color: #fff;
   font-size: 22px;
@@ -75,38 +100,87 @@ body {
   transform: translateY(-4px) scale(1.01);
 }
 
+@media (max-width: 900px) {
+  .genre-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media (max-width: 768px) {
+  .browse-container {
+    padding-top: 80px;
+  }
+
   .browse-title {
-    font-size: 22px;
-    margin: 72px 16px 20px;
+    font-size: 26px;
+    margin: 0 20px 28px;
     text-align: left;
+    padding-top: 12px;
+    font-weight: 700;
   }
 
   .genre-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin: 0 16px;
+    margin: 0 20px;
+    padding-bottom: 40px;
   }
 
   .genre-card {
     height: 140px;
-    font-size: 18px;
+    font-size: 19px;
     padding: 24px 16px;
     border-radius: 14px;
+  }
+
+  .genre-card:hover {
+    transform: none;
+  }
+
+  .genre-card:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 600px) {
+  .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
+  .browse-container {
+    padding-top: 76px;
+  }
+
+  .browse-title {
+    font-size: 24px;
+    margin: 0 16px 24px;
+  }
+
   .genre-grid {
     gap: 14px;
+    margin: 0 16px;
   }
 
   .genre-card {
     height: 130px;
-    font-size: 17px;
+    font-size: 18px;
     padding: 22px 14px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .browse-title {
+    font-size: 22px;
+  }
+
+  .genre-card {
+    height: 120px;
+    font-size: 17px;
   }
 }
 

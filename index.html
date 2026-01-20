@@ -85,8 +85,48 @@
   </header>
 
   <section class="index-hero"></section>
+  
   <!-- MAIN -->
   <main>
+
+    <!-- WHAT SHOULD I WATCH TONIGHT -->
+    <section class="watch-tonight" id="watchTonight">
+      <div class="watch-tonight-inner">
+
+        <h2 class="watch-tonight-title">
+          What Should I Watch Today?
+        </h2>
+
+        <!-- MOOD BUTTONS -->
+        <div class="mood-selector" id="moodSelector">
+          <button data-mood="action">Action</button>
+          <button data-mood="thriller">Thriller</button>
+          <button data-mood="comedy">Comedy</button>
+          <button data-mood="emotional">Emotional</button>
+          <button data-mood="surprise">🗘 Random Pick</button>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="watch-results hidden" id="watchResults"></div>
+
+        <!-- CHANGE BUTTON -->
+        <button class="change-btn hidden" id="changeMoodBtn">
+          Change ⇲
+        </button>
+
+        <!-- DROPDOWN PANEL -->
+        <div class="change-panel hidden" id="changePanel">
+          <div class="mood-selector">
+            <button data-mood="action">Action</button>
+            <button data-mood="thriller">Thriller</button>
+            <button data-mood="comedy">Comedy</button>
+            <button data-mood="emotional">Emotional</button>
+            <button data-mood="surprise">🗘 Random Pick</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <div id="page-loader" class="page-loader hidden">
       <p id="loader-text">Loading content…</p>
