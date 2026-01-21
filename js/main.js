@@ -296,6 +296,15 @@ const watchResults = document.getElementById("watchResults");
 const changeBtn = document.getElementById("changeMoodBtn");
 const changePanel = document.getElementById("changePanel");
 
+const watchSection = document.getElementById("watchTonight");
+const watchLoader = document.getElementById("watchTonightLoader");
+
+function showWatchTonight() {
+  watchLoader?.classList.add("hidden");
+  watchSection?.classList.remove("hidden");
+}
+
+
 function getUserKey() {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -370,6 +379,8 @@ function renderCards(items) {
   watchResults.classList.remove("hidden");
   moodSelector.classList.add("hidden");
   changeBtn.classList.remove("hidden");
+
+  showWatchTonight();
 }
 
 function pickRandom(arr, count = 1) {
@@ -467,6 +478,7 @@ async function loadDefaultPicks() {
     };
     saveSelection(data);
     renderCards(items);
+    showWatchTonight();
   }
 }
 
@@ -498,6 +510,7 @@ changeBtn?.addEventListener("click", () => {
   const saved = getSavedSelection();
   if (isValidStored(saved)) {
     renderCards(saved.items);
+    showWatchTonight();
   } else {
     loadDefaultPicks();
   }

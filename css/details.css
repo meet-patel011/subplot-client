@@ -1,4 +1,3 @@
-
 .hero {
   position: relative;
   height: 80vh;
@@ -574,162 +573,458 @@
   color: #e5e7eb;
 }
 
+/* MOBILE RESPONSIVE STYLES */
+
 @media (max-width: 768px) {
+  /* Hero Section */
   .hero {
     height: auto;
-    min-height: 70vh;
+    min-height: 85vh;
   }
+
+  .hero-bg {
+    filter: brightness(0.35) saturate(1.1);
+  }
+
   .hero-content {
     flex-direction: column;
-    padding: 80px 16px 32px;
-    gap: 20px;
+    padding: 100px 20px 40px;
+    gap: 24px;
     align-items: center;
-  }
-  .hero-poster {
-    width: 200px;
-    border-radius: 16px;
-  }
-  .hero-info {
-    max-width: 100%;
     text-align: center;
   }
-  .hero-title {
-    font-size: 26px;
-    line-height: 1.2;
+
+  .hero-poster {
+    width: 180px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
   }
+
+  .hero-info {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    line-height: 1.25;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  }
+
   .hero-meta {
     justify-content: center;
     flex-wrap: wrap;
-    font-size: 14px;
+    font-size: 13px;
     gap: 10px;
+    margin: 10px 0;
   }
+
   .hero-actions {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     margin: 20px 0;
   }
+
   .btn {
-    padding: 12px 20px;
+    padding: 11px 20px;
     font-size: 14px;
     border-radius: 10px;
   }
+
   .hero-overview {
-    font-size: 15px;
-    line-height: 1.6;
-    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.65;
+    margin-top: 14px;
   }
+
   .hero-genres {
     justify-content: center;
     gap: 8px;
     margin-top: 14px;
   }
+
   .hero-genres span {
-    padding: 6px 14px;
+    padding: 6px 12px;
     font-size: 12px;
+    border-radius: 18px;
   }
+
+  /* Details Sections */
   .details-section {
-    margin: 32px 16px;
+    margin: 36px 16px;
   }
+
   .details-section h2 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 16px;
+    border-left-width: 3px;
+    padding-left: 10px;
   }
+
+  .details-section:last-of-type {
+    margin-top: 60px;
+  }
+
+  .details-section:last-of-type::before {
+    margin-bottom: 30px;
+  }
+
+  /* Seasons Grid */
   .seasons-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
+    margin-top: 16px;
   }
+
   .season-card {
-    padding: 16px;
+    padding: 14px;
     border-radius: 12px;
-    min-height: 100px;
+    min-height: 90px;
   }
+
+  .season-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .season-card strong {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .season-card small {
+    font-size: 12px;
+  }
+
+  /* Cast Section */
   #cast-row {
     gap: 16px;
     justify-content: flex-start;
   }
+
   .cast-card {
-    width: 90px;
+    width: 85px;
   }
+
   .cast-card img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
+    border: 1.5px solid #333;
   }
+
+  .cast-card p {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  /* Crew Section */
   .crew-list {
     gap: 16px;
     justify-content: flex-start;
   }
+
   .crew-card {
-    width: 100px;
+    width: 95px;
   }
+
   .crew-card img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
+    border: 1.5px solid #333;
   }
+
+  .crew-card p {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  .crew-card span {
+    font-size: 11px;
+  }
+
+  /* Trailer Modal */
+  .trailer-modal {
+    padding: 0 16px;
+  }
+
   .trailer-box {
-    width: 90%;
-    border-radius: 16px;
+    width: 95%;
+    border-radius: 12px;
   }
+
   .close-trailer {
-    font-size: 28px;
-    top: -40px;
+    font-size: 26px;
+    top: -38px;
+    right: 4px;
   }
+
+  /* Rating Container */
   .rating-container {
     padding: 16px;
     border-radius: 12px;
+    max-width: 100%;
   }
+
   .rating-options {
     gap: 10px;
+    margin-bottom: 16px;
   }
+
   .rating-options button {
-    padding: 10px 14px;
-    font-size: 13px;
+    padding: 9px 14px;
+    font-size: 12px;
+    border-radius: 18px;
   }
+
+  .rating-meter {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .meter-row {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .meter-row span {
+    width: 50px;
+    font-size: 15px;
+  }
+
+  .meter-bar {
+    height: 7px;
+  }
+
+  .rating-note {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  /* Review Section */
+  .spoiler-warning {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
   .review-box {
     max-width: 100%;
+    margin-bottom: 24px;
   }
+
   .review-box textarea {
+    min-height: 110px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .review-box button {
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* Review Cards */
+  .review-card {
     padding: 14px;
     border-radius: 12px;
-    min-height: 120px;
-    font-size: 15px;
-  }
-  .review-box button {
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 15px;
-  }
-  .review-card {
-    padding: 16px;
-    border-radius: 12px;
     max-width: 100%;
+    margin-bottom: 14px;
   }
+
+  .review-header {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
   .review-avatar {
     width: 36px;
     height: 36px;
   }
+
   .review-header strong {
     font-size: 14px;
   }
+
   .review-header span {
-    font-size: 12px;
+    font-size: 11px;
   }
+
   .review-card p {
-    font-size: 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
   }
+
+  .review-user {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .review-text {
+    font-size: 13px;
+  }
+
+  /* Recommendations Row */
   #recommendations-row {
     gap: 12px;
     padding-bottom: 12px;
+    margin-top: 20px;
   }
+
   #recommendations-row .card {
-    flex: 0 0 130px;
-    max-width: 130px;
-    border-radius: 12px;
+    flex: 0 0 125px;
+    max-width: 125px;
+    border-radius: 10px;
   }
+
   #recommendations-row .card img {
-    height: 195px;
+    height: 188px;
   }
+
+  #recommendations-row .card:hover {
+    transform: translateY(-2px);
+  }
+
+  #recommendations-row .card-overlay {
+    padding: 8px;
+  }
+
   #recommendations-row .card-overlay h3 {
     font-size: 12px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 75vh;
+  }
+
+  .hero-content {
+    padding: 80px 16px 32px;
+    gap: 20px;
+  }
+
+  .hero-poster {
+    width: 160px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .hero-overview {
+    font-size: 13px;
+  }
+
+  .hero-genres span {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .details-section {
+    margin: 30px 12px;
+  }
+
+  .details-section h2 {
+    font-size: 16px;
+  }
+
+  #cast-row {
+    gap: 12px;
+  }
+
+  .cast-card {
+    width: 75px;
+  }
+
+  .cast-card img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .cast-card p {
+    font-size: 11px;
+  }
+
+  .crew-list {
+    gap: 12px;
+  }
+
+  .crew-card {
+    width: 85px;
+  }
+
+  .crew-card img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .crew-card p {
+    font-size: 11px;
+  }
+
+  .rating-container {
+    padding: 14px;
+  }
+
+  .rating-options button {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .meter-row span {
+    width: 85px;
+    font-size: 11px;
+  }
+
+  .review-box textarea {
+    min-height: 100px;
+    padding: 11px;
+    font-size: 13px;
+  }
+
+  .review-box button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .review-card {
+    padding: 12px;
+  }
+
+  .review-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .review-header strong {
+    font-size: 13px;
+  }
+
+  .review-card p {
+    font-size: 13px;
+  }
+
+  #recommendations-row .card {
+    flex: 0 0 115px;
+    max-width: 115px;
+  }
+
+  #recommendations-row .card img {
+    height: 173px;
+  }
+
+  #recommendations-row .card-overlay h3 {
+    font-size: 11px;
   }
 }

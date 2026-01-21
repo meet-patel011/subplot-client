@@ -89,15 +89,19 @@
   <!-- MAIN -->
   <main>
 
+    <!-- WHAT SHOULD I WATCH TONIGHT LOADER -->
+    <div id="watchTonightLoader" class="page-loader">
+      <p>Waking up server… finding something good for you</p>
+    </div>
+
     <!-- WHAT SHOULD I WATCH TONIGHT -->
-    <section class="watch-tonight" id="watchTonight">
+    <section class="watch-tonight hidden" id="watchTonight">
       <div class="watch-tonight-inner">
 
         <h2 class="watch-tonight-title">
           Let's Pick Something to Watch !
         </h2>
 
-        <!-- MOOD BUTTONS -->
         <div class="mood-selector" id="moodSelector">
           <button data-mood="action">Action</button>
           <button data-mood="thriller">Thriller</button>
@@ -106,15 +110,12 @@
           <button data-mood="surprise">🎲 Random Pick</button>
         </div>
 
-        <!-- RESULTS -->
         <div class="watch-results hidden" id="watchResults"></div>
 
-        <!-- CHANGE BUTTON -->
         <button class="change-btn hidden" id="changeMoodBtn">
           Change ⇲
         </button>
 
-        <!-- DROPDOWN PANEL -->
         <div class="change-panel hidden" id="changePanel">
           <div class="mood-selector">
             <button data-mood="action">Action</button>
@@ -128,9 +129,6 @@
       </div>
     </section>
 
-    <div id="page-loader" class="page-loader hidden">
-      <p id="loader-text">Loading content…</p>
-    </div>
 
     <!-- TRENDING -->
     <section class="section">
@@ -153,7 +151,7 @@
 
     <!-- PICK ONE -->
     <section class="section pick-one-section">
-      <h2 class="section-title">Which One Would You Pick?</h2>
+      <h2 class="section-title">Your Movie Preference</h2>
 
       <p class="pick-one-subtitle">
         Your choice helps us understand what viewers enjoy.

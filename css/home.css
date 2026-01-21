@@ -623,24 +623,6 @@ main::after {
   display: none;
 }
 
-@media (max-width: 768px) {
-  .pick-one-container {
-    gap: 32px;
-    padding: 22px 0;
-  }
-
-  .pick-one-card {
-    width: 150px;
-    min-width: 150px;
-  }
-
-  .pick-one-poster {
-    width: 150px;
-    height: 225px;
-    border-radius: 12px;
-  }
-}
-
 /* News section */
 .homepage-news {
   padding: 36px 8px;
@@ -729,142 +711,452 @@ main::after {
   overflow: hidden;
 }
 
+/* MOBILE RESPONSIVE STYLES */
+
 @media (max-width: 768px) {
-  .featured-news-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .homepage-news {
-    padding: 28px 20px;
-  }
-
-  .featured-news-card img {
-    width: 84px;
-    height: 120px;
-  }
-}
-
-/* mobile responsive */
-@media (max-width: 768px) {
+  /* Navbar */
   .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    height: 70px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    height: 52px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
+
   .logo {
-    height: 36px;
-    max-width: 120px;
-    overflow: visible;
+    height: 28px;
+    max-width: 110px;
   }
+
   .logo img {
-    height: 65px;
-    margin-top: 5px;
-    object-fit: contain;
+    height: 70px;
+    margin-left: -10px;
   }
+
   .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    gap: 14px;
   }
+
+  .nav-link,
+  .browse-btn {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
   .nav-right .nav-link[href*="watchlist"],
   .nav-right .nav-link[href*="login"] {
     display: none;
   }
-  .nav-link,
-  .browse-btn {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 25px;
-  }
+
+  /* Browse Dropdown */
   .browse-dropdown,
   .browse-dropdown.mega {
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: 360px;
-    padding: 16px;
+    width: calc(100% - 24px);
+    max-width: 400px;
+    padding: 14px;
     border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
   }
+
+  .browse-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
   .browse-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
+
   .browse-card {
-    padding: 14px 8px;
+    padding: 12px 8px;
     border-radius: 10px;
   }
+
   .browse-card span {
     font-size: 20px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
+
   .browse-card p {
-    font-size: 12px;
+    font-size: 11px;
   }
-  .home-search {
-    max-width: 100%;
-    margin: 16px 16px 24px;
-  }
-  .home-search input {
-    width: 100%;
-    height: 27px;
-    margin-top: 25px;
-    font-size: 10px;
-    border-radius: 30px;
-    background: rgba(18, 18, 18, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .search-icon {
-    left: 18px;
-    font-size: 16px;
-  }
+
+/* Search Bar */
+.home-search {
+  max-width: 140px;
+  height: 15px;
+}
+
+.home-search input {
+  width: 100%;
+  height: 25px;
+  padding: 0 12px 0 28px; 
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 20px;
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.search-icon {
+  left: 10px;
+  font-size: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home-search input::placeholder {
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+
+  /* Main Content */
   main {
-    padding: 0 16px 40px;
-    padding-top: 10px;
+    padding: 20px 16px 40px;
+    background:
+      radial-gradient(
+        180% 20% at 50% 0%,
+        rgba(148, 60, 220, 0.25),
+        rgba(7, 7, 116, 0.15) 35%,
+        transparent 65%
+      ),
+      linear-gradient(
+        to bottom,
+        #0e0e11 0%,
+        #0b0b0d 40%,
+        #000 100%
+      );
   }
+
+  main::after {
+    height: 120px;
+  }
+
+  /* Section Titles */
   .section {
-    margin: 20px 0 32px;
+    margin: 24px 0 36px;
   }
+
   .section-title {
-    font-size: 12px;
+    font-size: 17px;
     font-weight: 700;
     gap: 10px;
     margin-bottom: 12px;
   }
+
   .section-title img {
     height: 1.8em;
   }
+
+  /* Movie Cards Row */
   .row {
-    gap: 12px;
-    padding: 8px 0 16px;
-    min-height: 210px;
+    gap: 10px;
+    padding: 8px 0 14px;
+    min-height: 200px;
   }
+
   .card {
-    min-width: 130px;
-    max-width: 130px;
-    height: 195px;
-    border-radius: 12px;
+    min-width: 120px;
+    max-width: 120px;
+    height: 180px;
+    border-radius: 10px;
   }
+
   .card img.poster {
+    border-radius: 10px;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  .view-all-btn {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  /* Watch Tonight Section */
+  .watch-tonight {
+    margin-bottom: 60px;
+    padding: 0 4px;
+  }
+
+  .watch-tonight-inner {
+    padding: 0 12px;
+  }
+
+  .watch-tonight-title {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  .watch-tonight-title::after {
+    width: 180px;
+    height: 2.5px;
+    margin-top: 8px;
+  }
+
+  .watch-overview {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .mood-selector {
+    gap: 8px;
+    padding: 10px;
+    border-radius: 14px;
+    width: 100%;
+  }
+
+  .mood-selector button {
+    padding: 10px 16px;
+    font-size: 13px;
+    border-radius: 25px;
+  }
+
+  .watch-results {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .watch-card {
+    max-width: 100%;
     border-radius: 12px;
   }
-  .site-footer {
-    padding: 40px 16px;
-    margin-top: 60px;
+
+  .watch-card img {
+    width: 110px;
+    min-width: 110px;
   }
-  .footer-tagline {
+
+  .watch-card-content {
+    padding: 12px;
+  }
+
+  .watch-card-content h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .watch-card-content .meta {
+    font-size: 0.8rem;
+  }
+
+  .change-btn {
+    margin-top: 14px;
     font-size: 14px;
   }
-  .site-footer p {
+
+  /* Pick One Section */
+  .pick-one-section {
+    padding: 20px 12px;
+  }
+
+  .pick-one-subtitle {
+    font-size: 0.85em;
+  }
+
+  .pick-one-container {
+    gap: 30px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .pick-one-card {
+    width: 140px;
+    min-width: 140px;
+  }
+
+  .pick-one-poster {
+    width: 140px;
+    height: 210px;
+    border-radius: 12px;
+  }
+
+  .pick-one-info {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+
+  .pick-one-info h4 {
     font-size: 13px;
   }
-  .footer-sub {
+
+  .pick-one-info span {
     font-size: 12px;
+  }
+
+  .pick-one-note {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+
+  .pick-one-timer {
+    font-size: 11px;
+  }
+
+  /* Homepage News Section */
+  .homepage-news {
+    padding: 28px 12px;
+  }
+
+  .homepage-news .section-header {
+    margin-bottom: 14px;
+  }
+
+  .homepage-news .section-header h2 {
+    font-size: 18px;
+  }
+
+  .explore-news-btn {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .featured-news-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .featured-news-card {
+    gap: 14px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .featured-news-card img {
+    width: 80px;
+    height: 120px;
+    border-radius: 8px;
+  }
+
+  .featured-news-content .news-source {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .featured-news-content h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .featured-news-content p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 36px 16px;
+    margin-top: 60px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .site-footer p {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .footer-sub {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+
+  .footer-credit {
+    margin-top: 40px;
+    font-size: 11px;
+  }
+
+  /* Page Loader */
+  .page-loader {
+    padding: 24px 16px;
+    font-size: 13px;
   }
 }
 
 
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+    height: 60px;
+  }
+
+  .logo {
+    height: 28px;
+    max-width: 120px;
+  }
+
+  .logo img {
+    height: 75px;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+
+  .nav-link,
+  .browse-btn {
+    font-size: 12px;
+  }
+
+  .home-search {
+    margin: 16px 12px 24px;
+  }
+
+  .home-search input {
+    padding: 10px 14px 10px 10px;
+    font-size: 13px;
+  }
+
+  .search-icon {
+    left: 14px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 16px 12px 32px;
+  }
+
+  .section {
+    margin: 20px 0 30px;
+  }
+
+  .section-title {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .card {
+    min-width: 110px;
+    max-width: 110px;
+    height: 165px;
+  }
+
+  .watch-tonight-title {
+    font-size: 1.1rem;
+  }
+
+  .mood-selector button {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .pick-one-card {
+    width: 130px;
+    min-width: 130px;
+  }
+
+  .pick-one-poster {
+    width: 130px;
+    height: 195px;
+  }
+}
