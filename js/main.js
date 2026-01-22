@@ -737,58 +737,6 @@ function renderHomepageNews(articles) {
 }
 loadHomepageNews();
 
-const CELEBS_CACHE_KEY = "homepage_trending_celebrities_v1";
-const CELEBS_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
-const TMDB_PROFILE_IMG = "https://image.tmdb.org/t/p/w185";
 
-async function loadTrendingCelebrities() {
-  const row = document.getElementById("celebritiesRow");
-  if (!row) return;
-
-  try {
-    const res = await fetch(`${BACKEND}/api/tmdb/trending`);
-    const data = await res.json();
-
-    if (!Array.isArray(data?.results)) return;
-
-    const people = data.results
-      .filter(p =>
-        p.media_type === "person" &&
-        p.profile_path &&
-        p.known_for_department === "Acting" &&
-        p.popularity > 20
-      )
-      .slice(0, 10);
-
-    renderCelebrities(people);
-
-  } catch (err) {
-    console.error("Celebrities failed", err);
-  }
-}
-
-
-function renderCelebrities(people) {
-  const row = document.getElementById("celebritiesRow");
-  row.innerHTML = "";
-
-  people.forEach(person => {
-    const card = document.createElement("div");
-    card.className = "celebrity-card";
-
-    card.innerHTML = `
-      <img
-        class="celebrity-photo"
-        src="https://image.tmdb.org/t/p/w185${person.profile_path}"
-        alt="${person.name}"
-      />
-      <div class="celebrity-name">${person.name}</div>
-    `;
-
-    row.appendChild(card);
-  });
-}
-
-loadTrendingCelebrities();
 
 

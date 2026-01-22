@@ -711,72 +711,7 @@ main::after {
   overflow: hidden;
 }
 
-.celebrities-section {
-  margin-top: 40px;
-}
-
-.celebrities-section .section-header {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 20px;
-}
-
-.celebrities-section .section-title {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.celebrities-section .section-subtitle {
-  font-size: 13px;
-  color: #aaa;
-}
-
-.celebrities-row {
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.celebrities-row::-webkit-scrollbar {
-  height: 6px;
-}
-
-.celebrities-row::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-}
-
-.celebrity-card {
-  width: 120px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.celebrity-photo {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  margin: 0 auto;
-  background: #111;
-}
-
-.celebrity-name {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #eee;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
 /* MOBILE RESPONSIVE STYLES */
-
 @media (max-width: 768px) {
   /* Navbar */
   .navbar {

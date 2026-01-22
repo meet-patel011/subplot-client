@@ -4,8 +4,8 @@
   padding-bottom: 100px;
   background:
       radial-gradient(
-        1200px 500px at top center,
-        rgba(64, 23, 197, 0.406),
+        1200px 350px at top center,
+        rgba(61, 41, 178, 0.406),
         rgba(0, 0, 0, 0.95)
       ),
       linear-gradient(
@@ -236,7 +236,7 @@ body {
     font-size: 14px;
   }
   .franchise-results-page {
-    padding: 72px 16px 40px;
+    padding: 72px 45px 40px;
   }
   .franchise-results-page h1 {
     font-size: 24px;
