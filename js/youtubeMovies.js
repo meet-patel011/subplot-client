@@ -1,15 +1,5 @@
 const YOUTUBE_MOVIES = [
-  {
-    id: "yt_001",
-    title: "Game Changer",
-    language: "Hindi",
-    industry: "South Cinema",
-    poster: "assets/youtube/gamechanger.jpg",
-    youtubeUrl: "https://youtu.be/bfoj6eoVqEE?si=zr-cRsqs_roZvVaP",
-    provider: "youtube"
-  },
-
-  {
+{
     id: "yt_002",
     title: "Marco",
     language: "Hindi",

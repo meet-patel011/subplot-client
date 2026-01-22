@@ -31,32 +31,42 @@
   </nav>
 </header>
 
-<main class="social-page">
+  <main class="social-page">
 
-  <section class="post-box">
-    <textarea id="postContent" placeholder="Share a movie thought, meme, or trailer…"></textarea>
+    <section class="post-box">
+      <textarea id="postContent" placeholder="Share a movie thought, meme, or trailer…"></textarea>
 
-    <div class="media-row">
-      <input type="file" id="mediaFile" accept="image/*,video/*">
-      <input id="postMedia" placeholder="Or paste image / video URL">
+      <div class="media-row">
+        <input type="file" id="mediaFile" accept="image/*,video/*">
+        <input id="postMedia" placeholder="Or paste image / video URL">
+      </div>
+
+      <button id="postBtn">Post</button>
+
+      <p class="hint">
+        💡 Share memes, trailers, opinions • Login required to post
+      </p>
+    </section>
+
+    <!-- new code -->
+    <div id="page-loader" class="page-loader hidden">
+      Loading community posts…
     </div>
+    <!-- end new code -->
 
-    <button id="postBtn">Post</button>
+    <section id="feed"></section>
 
-    <p class="hint">
-      💡 Share memes, trailers, opinions • Login required to post
-    </p>
-  </section>
+  </main>
 
-  <!-- new code -->
-  <div id="page-loader" class="page-loader hidden">
-    Loading community posts…
-  </div>
-  <!-- end new code -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 The Subplot</p>
 
-  <section id="feed"></section>
-
-</main>
+      <p class="footer-tagline">
+        Every Story Has a <span>Subplot</span>
+      </p>
+    </div>
+  </footer>
 
   <script src="js/auth.js"></script>
   <script src="js/social.js"></script>

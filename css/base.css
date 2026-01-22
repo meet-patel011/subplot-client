@@ -27,3 +27,138 @@ body {
   background: #000000f9;
   color: var(--text);
 }
+
+.site-footer {
+  background: #000;
+  padding: 48px 20px;
+  margin-top: 80px;
+  border-top: 1px solid #111;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.footer-tagline {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+
+.footer-tagline span {
+  background: linear-gradient(90deg, #ff4d4d, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+
+.site-footer p {
+  margin-top: 3px;
+  font-size: 14px;
+  color: #888;
+}
+
+
+.footer-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.footer-credit {
+  margin-top: 50px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* MOBILE RESPONSIVE STYLES */
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #141414;
+  }
+
+  .footer-inner {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .footer-tagline {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+  }
+
+  .footer-tagline span {
+    font-weight: 700;
+  }
+
+  .site-footer p {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #999;
+    line-height: 1.5;
+  }
+
+  .footer-sub {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  .footer-credit {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #666;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 36px 16px;
+    margin-top: 50px;
+  }
+
+  .footer-inner {
+    padding: 0 8px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+  }
+
+  .site-footer p {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .footer-sub {
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .footer-credit {
+    margin-top: 26px;
+    font-size: 10px;
+    color: #777;
+  }
+}

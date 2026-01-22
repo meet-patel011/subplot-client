@@ -85,7 +85,7 @@
     height: 40vh;
   }
   .editors-page {
-    padding: 0 16px 50px;
+    padding: 0 56px 50px;
     margin-top: -50px;
   }
   .editors-page h1 {
@@ -106,7 +106,7 @@
     border-radius: 12px;
   }
   .editor-card p {
-    font-size: 13px;
+    font-size: 10px;
     margin-top: 8px;
   }
 }
