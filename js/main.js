@@ -91,7 +91,7 @@ async function loadTrending() {
 
     // new code
     if (row.children.length > 0) {
-      loader.classList.add("hidden");
+      loader?.classList.add("hidden");
     }
     //end new code
 
@@ -769,10 +769,13 @@ async function loadTrendingCelebrities() {
     if (!results.length) return;
 
     const people = results
-      .filter(
-        p =>
-          p.profile_path &&
-          p.known_for_department === "Acting"
+      .filter(p =>
+        p.profile_path &&
+        p.known_for_department === "Acting" &&
+        (
+          p.known_for?.some(k => k.original_language === "hi") ||
+          p.known_for?.some(k => k.original_language === "en")
+        )
       )
       .slice(0, 10);
 
