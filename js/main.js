@@ -745,74 +745,42 @@ async function loadTrendingCelebrities() {
   const row = document.getElementById("celebritiesRow");
   if (!row) return;
 
-  let cached = null;
-
   try {
-    cached = JSON.parse(localStorage.getItem(CELEBS_CACHE_KEY));
-  } catch {}
-
-  if (cached && Date.now() - cached.time < CELEBS_CACHE_TTL) {
-    renderCelebrities(cached.people);
-    return;
-  }
-
-  try {
-    const res = await fetch(`${BACKEND}/api/tmdb/trending-people`);
+    const res = await fetch(`${BACKEND}/api/tmdb/trending`);
     const data = await res.json();
 
-    const results = Array.isArray(data?.results)
-      ? data.results
-      : Array.isArray(data)
-      ? data
-      : [];
+    if (!Array.isArray(data?.results)) return;
 
-    if (!results.length) return;
-
-    const people = results
+    const people = data.results
       .filter(p =>
+        p.media_type === "person" &&
         p.profile_path &&
         p.known_for_department === "Acting" &&
-        (
-          p.known_for?.some(k => k.original_language === "hi") ||
-          p.known_for?.some(k => k.original_language === "en")
-        )
+        p.popularity > 20
       )
       .slice(0, 10);
 
-    localStorage.setItem(
-      CELEBS_CACHE_KEY,
-      JSON.stringify({
-        time: Date.now(),
-        people
-      })
-    );
-
     renderCelebrities(people);
+
   } catch (err) {
-    console.error("Failed to load celebrities", err);
+    console.error("Celebrities failed", err);
   }
 }
 
+
 function renderCelebrities(people) {
   const row = document.getElementById("celebritiesRow");
-  if (!row) return;
-
   row.innerHTML = "";
 
   people.forEach(person => {
     const card = document.createElement("div");
     card.className = "celebrity-card";
 
-    const imgSrc = person.profile_path
-      ? `${TMDB_PROFILE_IMG}${person.profile_path}`
-      : "assets/no-avatar.png";
-
     card.innerHTML = `
       <img
         class="celebrity-photo"
-        src="${imgSrc}"
+        src="https://image.tmdb.org/t/p/w185${person.profile_path}"
         alt="${person.name}"
-        loading="lazy"
       />
       <div class="celebrity-name">${person.name}</div>
     `;
