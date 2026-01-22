@@ -2,11 +2,10 @@
   padding: 40px;
   padding-top: 70px;
   padding-bottom: 100px;
-  background-color: #0b0b0b;
   background:
       radial-gradient(
         1200px 500px at top center,
-        rgba(90, 23, 197, 0.089),
+        rgba(64, 23, 197, 0.406),
         rgba(0, 0, 0, 0.95)
       ),
       linear-gradient(
@@ -23,6 +22,20 @@
   font-size: 25px;
   margin-left: 85px;
   margin-bottom: 30px;
+}
+
+.franchise-container h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(
+    to right,
+    rgb(219, 211, 203),
+    rgba(2, 1, 24, 0)
+  );
+  border-radius: 2px;
 }
 
 body {

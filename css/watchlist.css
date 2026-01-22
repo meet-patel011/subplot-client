@@ -114,44 +114,61 @@
   border-radius: 12px;
 }
 
-/* mobile ui */
+/* MOBILE RESPONSIVE STYLES */
 @media (max-width: 768px) {
-  .watchlist-page {
-    padding: 72px 16px 40px;
-  }
-  .watchlist-page h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  .watchlist-sub {
-    font-size: 14px;
-    margin-bottom: 24px;
-  }
   .watchlist-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  .watchlist-card img {
-    border-radius: 12px;
+
+  .watchlist-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .remove-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 15px;
-    top: 8px;
-    right: 8px;
-  }
+
   .watchlist-poster {
-    border-radius: 12px;
-    height: 220px;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 16px;
+    overflow: hidden;
   }
-  .watchlist-fallback {
-    font-size: 12px;
+
+  .watchlist-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
   }
-  .watchlist-empty {
-    margin-top: 80px;
-    font-size: 15px;
+
+  .watchlist-title {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+    min-height: 38px;
+    padding: 0 6px;
   }
 }
 
+@media (max-width: 480px) {
+  .watchlist-grid {
+    gap: 14px;
+  }
+
+  .watchlist-poster {
+    aspect-ratio: 2 / 3;
+    border-radius: 14px;
+  }
+
+  .watchlist-card img {
+    border-radius: 14px;
+  }
+
+  .watchlist-title {
+    font-size: 13px;
+    min-height: 36px;
+  }
+}
 

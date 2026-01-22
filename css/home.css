@@ -446,7 +446,7 @@ main::after {
 }
 
 .watch-overview {
-  font-size: 0.85rem;
+  font-size: 0.55rem;
   line-height: 1.45;
   margin: 6px 0 10px;
   color: rgba(255, 255, 255, 0.78);
@@ -711,6 +711,65 @@ main::after {
   overflow: hidden;
 }
 
+.celebrities-section {
+  margin-top: 40px;
+}
+
+.celebrities-section .section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.celebrities-section .section-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.celebrities-section .section-subtitle {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.celebrities-row {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.celebrities-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.celebrities-row::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.celebrity-card {
+  flex: 0 0 auto;
+  width: 120px;
+  text-align: center;
+}
+
+.celebrity-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #111;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.celebrity-name {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.3;
+}
+
 /* MOBILE RESPONSIVE STYLES */
 
 @media (max-width: 768px) {
@@ -728,7 +787,7 @@ main::after {
 
   .logo img {
     height: 70px;
-    margin-left: -10px;
+    margin-left: -4px;
   }
 
   .nav-right {
@@ -895,13 +954,13 @@ main::after {
   }
 
   .watch-tonight-title::after {
-    width: 180px;
+    width: 210px;
     height: 2.5px;
     margin-top: 8px;
   }
 
   .watch-overview {
-    font-size: 0.8rem;
+    font-size: 0.55rem;
     line-height: 1.5;
   }
 
@@ -936,6 +995,7 @@ main::after {
 
   .watch-card-content {
     padding: 12px;
+    
   }
 
   .watch-card-content h3 {
@@ -1027,10 +1087,11 @@ main::after {
     gap: 14px;
     padding: 12px;
     border-radius: 12px;
+    display: grid;
   }
 
   .featured-news-card img {
-    width: 80px;
+    width: 100%;
     height: 120px;
     border-radius: 8px;
   }
@@ -1142,7 +1203,7 @@ main::after {
   }
 
   .watch-tonight-title {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 
   .mood-selector button {

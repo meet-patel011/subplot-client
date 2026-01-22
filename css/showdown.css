@@ -32,32 +32,73 @@
   font-weight: 700;
 }
 
+/* MOBILE RESPONSIVE STYLES */
+/* ================================
+   MOBILE RESPONSIVE – VS SIDE BY SIDE
+================================ */
+
 @media (max-width: 768px) {
+
   .showdown-container {
-    padding: 72px 16px 40px;
+    padding: 60px 16px 40px;
   }
+
   .showdown-container h1 {
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-  .showdown-box {
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 32px;
-  }
-  .slot {
-    width: 100%;
-    height: 200px;
-    border-radius: 12px;
-    font-size: 16px;
-  }
-  .vs {
     font-size: 22px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  /* ✅ KEEP ROW LAYOUT */
+  .showdown-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .slot {
+    flex: 1;
+    height: 190px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  .vs {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 480px) {
-  .showdown-container h1 {
-    font-size: 24px;
+
+  .showdown-container {
+    padding: 56px 12px 32px;
   }
+
+  .showdown-container h1 {
+    font-size: 20px;
+  }
+
+  .showdown-box {
+    gap: 8px;
+  }
+
+  .slot {
+    height: 165px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .vs {
+    font-size: 16px;
+  }
+}
+
+.vs {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.65);
 }
