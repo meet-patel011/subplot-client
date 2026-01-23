@@ -238,6 +238,17 @@ if (searchInput) {
   });
 }
 
+/* MOBILE SEARCH ICON */
+const mobileSearchIcon = document.querySelector(".mobile-search-icon");
+const homeSearchInput = document.getElementById("homeSearchInput");
+
+if (mobileSearchIcon && homeSearchInput) {
+  mobileSearchIcon.addEventListener("click", () => {
+    homeSearchInput.focus();
+  });
+}
+
+
 /* HOME SPOTLIGHT SEARCH */
 (function () {
   const homeSearchInput = document.getElementById("homeSearchInput");

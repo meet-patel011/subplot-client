@@ -33,6 +33,7 @@ body {
   padding: 48px 20px;
   margin-top: 80px;
   border-top: 1px solid #111;
+  margin-top: auto;
 }
 
 .footer-inner {

@@ -1,46 +1,61 @@
 .browse-title {
-  font-size: 28px;
-  margin: 30px 0 30px 30px;
+  font-size: 36px;
+  margin: 0 120px 60px;
   font-weight: 700;
   color: #f2f2f2;
 }
 
-body {
-  min-height: 100vh;
+.browse-container {
+  position: relative;
+  padding: 160px 90px 60px;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+.browse-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55vh;
   background:
     radial-gradient(
-      1000px 400px at top center,
-      rgba(255, 255, 255, 0.04),
-      transparent 60%
+      70% 50% at 0% 30%,
+      rgba(148, 60, 220, 0.45),
+      rgba(11, 11, 156, 0.25) 45%,
+      transparent 95%
     ),
     linear-gradient(
       180deg,
-      #121214 0%,
-      #0e0e11 40%,
-      #08080a 70%,
+      rgba(21, 39, 174, 0.45) 0%,
       #000 100%
     );
-  background-attachment: fixed;
+}
+
+.browse-container > * {
+  position: relative;
+  z-index: 1;
 }
 
 .genre-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 26px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .genre-card {
   height: 150px;
-  border-radius: 14px;
+  border-radius: 16px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 22px 20px;
-  background: linear-gradient(145deg, #1a1a1e, #0f0f12);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(90,120,255,0.18), rgba(20,25,60,0.15)),
+    linear-gradient(145deg, #141a3a, #0b0f1f);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #f5f5f5;
   font-size: 20px;
   font-weight: 600;
@@ -50,7 +65,7 @@ body {
 
 .genre-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.14);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
 }
 
@@ -62,25 +77,30 @@ body {
   }
 
   .browse-container {
-    padding-top: 80px;
+    padding: 120px 56px 50px;
+  }
+
+  .browse-container::before {
+    height: 42vh;
   }
 
   .browse-title {
-    font-size: 26px;
-    margin: 0 20px 28px;
+    font-size: 24px;
+    margin-bottom: 24px;
   }
 
   .genre-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin: 0 20px;
+    margin: 0;
     padding-bottom: 40px;
   }
 
   .genre-card {
     height: 140px;
-    font-size: 18px;
+    font-size: 17px;
     padding: 20px 16px;
+    border-radius: 14px;
   }
 
   .genre-card:hover {
@@ -94,23 +114,32 @@ body {
 }
 
 @media (max-width: 480px) {
+
+  .browse-title {
+    font-size: 16px;
+    margin: 0 10px 90px;
+  }
+
   .browse-container {
-    padding-top: 76px;
+    padding: 110px 16px 46px;
+  }
+
+  .browse-container::before {
+    height: 38vh;
   }
 
   .browse-title {
-    font-size: 24px;
-    margin: 0 16px 24px;
+    font-size: 22px;
+    margin-bottom: 22px;
   }
 
   .genre-grid {
     gap: 14px;
-    margin: 0 16px;
   }
 
   .genre-card {
     height: 130px;
-    font-size: 17px;
+    font-size: 16px;
     padding: 18px 14px;
     border-radius: 12px;
   }
@@ -118,11 +147,11 @@ body {
 
 @media (max-width: 375px) {
   .browse-title {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .genre-card {
     height: 120px;
-    font-size: 16px;
+    font-size: 15px;
   }
 }

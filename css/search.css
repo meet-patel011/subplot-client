@@ -3,7 +3,7 @@
   min-height: 100vh;
   background:
     radial-gradient(
-      240% 50% at 110% 0%,
+      240% 20% at 110% 0%,
       rgba(151, 171, 166, 0.08),
       rgba(148, 60, 220, 0.45),
       rgba(11, 11, 156, 0.25) 45%,
@@ -74,7 +74,7 @@
 
 @media (max-width: 768px) {
   .search-page {
-    padding: 72px 16px 40px;
+    padding: 100px 46px 40px;
     min-height: 100vh;
   }
   .search-page h2 {
@@ -83,7 +83,7 @@
   }
   .search-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 26px;
   }
   .search-grid .card img {
     border-radius: 12px;
