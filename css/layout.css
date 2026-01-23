@@ -141,3 +141,17 @@ main {
     padding: 72px 16px 40px;
   }
 }
+
+@media (max-width: 768px) {
+
+
+  .nav-right .nav-link[href="index.html"],
+  .nav-right .nav-link[href="watchlist.html"] {
+    display: none !important;
+  }
+
+  .nav-right .browse-nav {
+    display: none !important;
+  }
+
+}

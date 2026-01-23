@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const data = await res.json();
       window.__TMDB_DATA__ = data;
 
-
       if (data.backdrop_path) {
         heroBg.style.backgroundImage = `url(${IMG_BACKDROP}${data.backdrop_path})`;
       }

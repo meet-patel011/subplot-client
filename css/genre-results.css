@@ -1,7 +1,7 @@
 .genre-results-page {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 30px;
+  padding: 120px 30px 90px;
 }
 
 .genre-results-page h1 {
@@ -16,26 +16,24 @@
   width: 100%;
   height: 3px;
   margin-top: 10px;
-
   background: linear-gradient(
     90deg,
-    #7408a5,
-    #b94e0b
+    #d9d8e0,
+    rgba(255, 255, 255, 0)
   );
-
   border-radius: 4px;
 }
 
 .genre-results-page .genre-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 22px;
+  gap: 50px;
 }
-
 
 .genre-results-page .card {
   cursor: pointer;
   transition: transform 0.25s ease;
+  margin-bottom: 35px;
 }
 
 .genre-results-page .card:hover {
@@ -44,7 +42,7 @@
 
 .genre-results-page .card img {
   width: 100%;
-  aspect-ratio: 2 / 3;     
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 14px;
   background: #111;
@@ -55,19 +53,21 @@ body {
   min-height: 100vh;
   width: 100%;
   position: relative;
-
   background:
     radial-gradient(
-      100% 30% at 30% 0%,
-      rgba(120, 90, 255, 0.45),
-      rgba(30, 40, 120, 0.25) 45%,
-      transparent 70%
+      90% 35% at 40% 0%,
+      rgba(120, 90, 255, 0.35),
+      rgba(30, 40, 120, 0.18) 45%,
+      transparent 75%
     ),
-    linear-gradient(180deg, #0a0a0a 0%, #000 100%);
-
-  background-size: 200% 200%;
+    linear-gradient(
+      180deg,
+      #0a0a0a 0%,
+      #000 100%
+    );
+  background-size: 160% 160%;
   background-position: 0% 0%;
-  animation: mainGlow 80s linear infinite;
+  animation: mainGlow 70s linear infinite;
 }
 
 @keyframes mainGlow {
@@ -75,16 +75,16 @@ body {
     background-position: 0% 0%;
   }
   50% {
-    background-position: 50% 15%;
+    background-position: 40% 15%;
   }
   100% {
-    background-position: 100% 30%;
+    background-position: 80% 30%;
   }
 }
 
 @media (max-width: 768px) {
   .genre-results-page {
-    padding: 72px 16px 40px;
+    padding: 96px 46px 40px;
   }
 
   .genre-results-page h1 {
@@ -93,30 +93,26 @@ body {
   }
 
   .genre-results-page .genre-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .genre-results-page .card img {
-    aspect-ratio: 2 / 3;
     border-radius: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .genre-results-page {
-    padding: 68px 50px 36px;
+    padding: 90px 46px 36px;
   }
 
   .genre-results-page h1 {
     font-size: 22px;
-    margin-left: 10px;
-    margin-top: -20px;
+    margin-bottom: 20px;
   }
 
   .genre-results-page .genre-grid {
-    gap: 14px;
+    gap: 19px;
   }
 }
-

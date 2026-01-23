@@ -194,6 +194,10 @@
     padding: 120px 16px 40px;
   }
 
+  .nav-right {
+    display: none;
+  }
+  
   .post-box textarea,
   .post-box input {
     padding: 14px;
