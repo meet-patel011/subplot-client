@@ -7,28 +7,10 @@
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
-body {
-    background:
-    radial-gradient(
-      1200px 500px at top center,
-      rgba(75, 207, 9, 0.365),
-      rgba(0, 0, 0, 0.95)
-    ),
-    linear-gradient(
-      to bottom,
-      #0e0e11 0%,
-      #0b0b0d 40%,
-      #000 100%
-    );
-
-  animation: bgFade 1.2s ease-out;
-}
-
 .news-navbar-inner {
   margin: 0 auto;
   height: 100%;
   padding: 0 40px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,14 +35,42 @@ body {
 
 .news-nav-links a:hover {
   opacity: 1;
-  color: red;
+  color: #3ddc84;
 }
 
-
 .news-page {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 30px 80px;
+  padding: 160px 30px 80px;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+.news-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55vh;
+  background:
+    radial-gradient(
+      70% 50% at 0% 30%,
+      rgba(61, 207, 133, 0.45),
+      rgba(12, 120, 70, 0.25) 45%,
+      transparent 95%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 120, 70, 0.45) 0%,
+      #000 100%
+    );
+}
+
+.news-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .news-title {
@@ -79,7 +89,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
-
 
 .news-card {
   background: #0f0f0f;
@@ -102,7 +111,7 @@ body {
 
 .news-tag {
   font-size: 11px;
-  color: #1db954;
+  color: #3ddc84;
   text-transform: uppercase;
 }
 
@@ -127,7 +136,7 @@ body {
 }
 
 .news-link {
-  color: #1db954;
+  color: #3ddc84;
   text-decoration: none;
 }
 
@@ -142,49 +151,67 @@ body {
   display: none;
 }
 
-/* mobile ui */
+/* MOBILE UI */
+
 @media (max-width: 768px) {
   .news-navbar {
     height: 60px;
   }
+
   .news-navbar-inner {
     padding: 0 16px;
   }
+
   .news-logo img {
     height: 65px;
   }
+
   .news-nav-links {
     gap: 16px;
   }
+
   .news-nav-links a {
     font-size: 14px;
   }
+
   .news-page {
-    padding: 72px 16px 60px;
+    padding: 120px 16px 60px;
   }
+
+  .news-page::before {
+    height: 42vh;
+  }
+
   .news-title {
     font-size: 24px;
   }
+
   .news-subtitle {
     font-size: 14px;
     margin-bottom: 28px;
   }
+
   .news-feed {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .news-card {
     border-radius: 16px;
   }
+
   .news-image {
     height: 200px;
   }
+
   .news-content {
     padding: 16px;
   }
+
   .news-headline {
     font-size: 16px;
   }
+
   .news-summary {
     font-size: 14px;
   }
