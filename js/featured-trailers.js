@@ -4,18 +4,18 @@ console.log("Featured trailers JS loaded");
 const DAILY_TRAILERS = [
   {
     title: "O'Romeo",
-    description: "This Valentine’s, feel a love that’s pure and devotional! ",
+    description: "This Valentine’s, feel a love that’s pure and devotional.",
     youtubeUrl: "https://youtu.be/2M4hKmuBzUU?si=quQ-6atAKNlgpKsn"
   },
   {
     title: "Masters of The Universe",
     description:
-      "Discover your true power. Watch the Hindi Teaser Trailer for Masters Of The Universe now, and see the movie only in cinemas on 5 June, in English, Hindi, Tamil and Telugu.",
+      "Discover your true power. Watch the Teaser Trailer for Masters Of The Universe.",
     youtubeUrl: "https://youtu.be/ZmEx7wQI6RY?si=ZCReHzg4aBrEQrhb"
   },
   {
     title: "Mayasabha",
-    description: "Mayasabha — The hall of illusion..Trailer out now !!",
+    description: "Mayasabha — The hall of illusion..Trailer out now!",
     youtubeUrl: "https://youtu.be/NR5zwpCZ6Fs?si=ASHHBDn4-wHtZG3R"
   },
 

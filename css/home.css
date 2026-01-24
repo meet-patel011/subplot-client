@@ -439,17 +439,6 @@ main::after {
   position: relative;
 }
 
-.watch-tonight-title::after {
-  content: "";
-  display: block;
-  width: 250px;
-  height: 3px;
-  margin-top: 10px;
-  /* background: linear-gradient(90deg, #bf410f, #bf0a8f); */
-  background: #d10404;
-  border-radius: 2px;
-}
-
 .watch-overview {
   font-size: 0.55rem;
   line-height: 1.45;
@@ -1288,48 +1277,127 @@ main::after {
   }
 }
 
+/* MOOD SELECTOR */
+
 @media (max-width: 768px) {
+  /* Hide the first mood selector */
+  #moodSelector {
+    display: none !important;
+  }
 
   .change-btn {
-    margin-top: 10px;
-    margin-bottom: 8px;
+    margin-top: 14px;
+    margin-bottom: 12px;
     font-size: 13px;
     color: #ffffffe7;
     text-align: left;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
   }
 
-  .mood-selector {
-    width: 50%;
-    padding: 2px;
-    background: #0f0f0f;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
+  .change-btn::after {
+    content: "↻";
+    font-size: 15px;
   }
 
-  .mood-selector button {
+  #changePanel .mood-selector {
     width: 100%;
-    text-align: left;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    background: transparent;
-    border: none;
-    color: #f1f1f1;
+    max-width: 100%;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.95), rgba(15, 15, 20, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    backdrop-filter: blur(10px);
   }
 
-  .mood-selector button + button {
-    border-top: 1px solid rgba(255,255,255,0.06);
+  #changePanel .mood-selector button {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e8e8e8;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #changePanel .mood-selector button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  #changePanel .mood-selector button:hover::before {
+    opacity: 1;
+  }
+
+  #changePanel .mood-selector button + button {
+    border-top: none;
     margin-top: 0;
   }
 
-  .mood-selector button:hover {
-    background: rgba(255,255,255,0.04);
+  #changePanel .mood-selector button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
   }
 
-  .mood-selector button[data-mood="surprise"] {
-    color: #eaffff;
+  #changePanel .mood-selector button:active {
+    transform: scale(0.98);
+  }
+
+  #changePanel .mood-selector button[data-mood="surprise"] {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #0b8e9d, #0aa89b);
+    border: none;
+    color: #ffffff;
     font-weight: 600;
+    box-shadow: 0 4px 12px rgba(11, 142, 157, 0.3);
+    font-size: 13px;
+    padding: 14px 10px;
+  }
+
+  #changePanel .mood-selector button[data-mood="surprise"]::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    position: static;
+    opacity: 1;
+  }
+
+  #changePanel .mood-selector button[data-mood="surprise"]:hover {
+    background: linear-gradient(135deg, #0c9faf, #0bbaac);
+    box-shadow: 0 6px 16px rgba(11, 142, 157, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+
+@media (max-width: 480px) {
+  #changePanel .mood-selector {
+    padding: 6px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+
+  #changePanel .mood-selector button {
+    padding: 11px 8px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  #changePanel .mood-selector button[data-mood="surprise"] {
+    padding: 13px 8px;
+    font-size: 12px;
   }
 }
 
@@ -1357,7 +1425,7 @@ main::after {
 /* Horizontal row */
 .trailer-row {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
   padding-bottom: 14px;
   scroll-behavior: smooth;
@@ -1370,22 +1438,23 @@ main::after {
 .trailer-card {
   min-width: 420px;
   max-width: 420px;
-  background:
+  /* background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.06),
+      rgba(28, 26, 26, 0.06),
       rgba(255, 255, 255, 0.015)
     ),
     linear-gradient(
       145deg,
-      #0f0f14,
-      #060608
-    );
+      #19181a8c,
+      #151518b0
+    ); */
   color: #000;
+  background-color: #000;
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.068);
   box-shadow: 
     0 18px 40px rgba(0,0,0,0.6),
     insert 0 1px 0 rgba(255,255,255,0.06);
@@ -1424,11 +1493,12 @@ main::after {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.75);
+  background: rgba(19, 16, 16, 0.594);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26px;
+  border-radius: 90px;
   color: #fff;
 }
 
@@ -1509,7 +1579,7 @@ main::after {
   .trailer-card {
     min-width: 72%;
     max-width: 72%;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .trailer-thumb {
@@ -1567,6 +1637,6 @@ main::after {
   }
 
   .trailer-info p {
-    font-size: 7px;
+    font-size: 9px;
   }
 }
