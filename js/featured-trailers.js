@@ -1,12 +1,11 @@
 console.log("Featured trailers JS loaded");
 
-/* SAFE BACKEND RESOLUTION */
 const BACKEND_URL =
   typeof API_BASE !== "undefined"
     ? API_BASE.replace("/api", "")
     : "https://subplot-server.onrender.com";
 
-/* FETCH TRAILERS FROM BACKEND */
+
 async function fetchFeaturedTrailers() {
   try {
     const res = await fetch(`${BACKEND_URL}/api/featured-trailers`, {
@@ -26,7 +25,6 @@ async function fetchFeaturedTrailers() {
   }
 }
 
-/* YOUTUBE ID EXTRACTOR */
 function getYouTubeId(url) {
   if (!url) return null;
 
@@ -37,7 +35,6 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-/* RENDER TRAILERS */
 async function renderFeaturedTrailers() {
   const row = document.querySelector(".trailer-row");
   if (!row) return;
@@ -47,7 +44,7 @@ async function renderFeaturedTrailers() {
   if (!trailers.length) {
     row.innerHTML = `
       <div class="no-trailer-msg">
-        🎬 No trailers available right now. Check back soon!
+        No trailers available right now. Check back soon!
       </div>
     `;
     return;
@@ -98,7 +95,6 @@ async function renderFeaturedTrailers() {
   });
 }
 
-/* MODAL CONTROLS */
 function openTrailerModal(videoId) {
   const modal = document.getElementById("trailerModal");
   const frame = document.getElementById("trailerFrame");
@@ -119,9 +115,20 @@ function closeTrailerModal() {
   frame.src = "";
 }
 
-/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedTrailers();
+
+  const trailerRow = document.querySelector(".featured-trailers .trailer-row");
+  if (trailerRow && window.innerWidth > 768) {
+    trailerRow.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+        trailerRow.scrollLeft += e.deltaY;
+      },
+      { passive: false }
+    );
+  }
 
   const closeBtn = document.querySelector(".close-trailer");
   const modal = document.getElementById("trailerModal");

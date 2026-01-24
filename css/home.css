@@ -1390,7 +1390,6 @@ main::after {
 }
 
 /* FEATURED TRAILERS SECTION */
-
 .featured-trailers {
   max-width: 1300px;
   margin: 20px auto 80px;
@@ -1411,6 +1410,8 @@ main::after {
   overflow-x: auto;
   padding-bottom: 14px;
   scroll-behavior: smooth;
+  overflow-y: hidden;    
+  scrollbar-width: none;
 }
 
 .trailer-row::-webkit-scrollbar {
