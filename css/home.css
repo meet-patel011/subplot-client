@@ -807,10 +807,11 @@ main::after {
     padding: 20px 16px 40px;
     background:
       radial-gradient(
-        270% 10% at 50% 0%,
-        rgba(148, 60, 220, 0.594),
-        rgba(7, 7, 116, 0.15) 35%,
-        transparent 65%
+        240% 10% at 110% 0%,
+        rgba(151, 171, 166, 0.08),
+        rgba(148, 60, 220, 0.45),
+        rgba(11, 11, 156, 0.25) 45%,
+        transparent 75%
       ),
       linear-gradient(
         to bottom,
@@ -818,6 +819,8 @@ main::after {
         #0b0b0d 40%,
         #000 100%
       );
+
+    animation: bgFade 1.2s ease-out;
   }
 
   main::after {
@@ -1353,28 +1356,13 @@ main::after {
 
   #changePanel .mood-selector button[data-mood="surprise"] {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, #0b8e9d, #0aa89b);
     border: none;
     color: #ffffff;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(11, 142, 157, 0.3);
     font-size: 13px;
     padding: 14px 10px;
   }
-
-  #changePanel .mood-selector button[data-mood="surprise"]::before {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-    position: static;
-    opacity: 1;
-  }
-
-  #changePanel .mood-selector button[data-mood="surprise"]:hover {
-    background: linear-gradient(135deg, #0c9faf, #0bbaac);
-    box-shadow: 0 6px 16px rgba(11, 142, 157, 0.4);
-    transform: translateY(-2px);
-  }
 }
-
 
 @media (max-width: 480px) {
   #changePanel .mood-selector {
@@ -1433,7 +1421,7 @@ main::after {
   min-width: 420px;
   max-width: 420px;
   color: #000;
-  background-color: #eadfdf08;
+  background-color: #eadfdf00;
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;

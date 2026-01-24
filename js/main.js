@@ -66,7 +66,7 @@ async function loadTrending() {
 
   //new code
   setTimeout(() => {
-    if (row.children.length === 0) {
+    if (row.children.length === 0 && loaderText) {
       loaderText.textContent = "Waking up server may take few minutes… please wait";
     }
   }, 4000);

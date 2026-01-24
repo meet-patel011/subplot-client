@@ -1,27 +1,32 @@
 console.log("Featured trailers JS loaded");
 
-/* DAILY TRAILER DATA */
-const DAILY_TRAILERS = [
-  {
-    title: "O'Romeo",
-    description: "This Valentine’s, feel a love that’s pure and devotional.",
-    youtubeUrl: "https://youtu.be/2M4hKmuBzUU?si=quQ-6atAKNlgpKsn"
-  },
-  {
-    title: "Masters of The Universe",
-    description:
-      "Discover your true power. Watch the Teaser Trailer for Masters Of The Universe.",
-    youtubeUrl: "https://youtu.be/ZmEx7wQI6RY?si=ZCReHzg4aBrEQrhb"
-  },
-  {
-    title: "Mayasabha",
-    description: "Mayasabha — The hall of illusion..Trailer out now!",
-    youtubeUrl: "https://youtu.be/NR5zwpCZ6Fs?si=ASHHBDn4-wHtZG3R"
-  },
+/* SAFE BACKEND RESOLUTION */
+const BACKEND_URL =
+  typeof API_BASE !== "undefined"
+    ? API_BASE.replace("/api", "")
+    : "https://subplot-server.onrender.com";
 
-];
+/* FETCH TRAILERS FROM BACKEND */
+async function fetchFeaturedTrailers() {
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/featured-trailers`, {
+      cache: "no-store"
+    });
 
+    if (!res.ok) {
+      throw new Error(`Failed to load trailers (${res.status})`);
+    }
 
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+
+  } catch (err) {
+    console.error("Trailer fetch error:", err);
+    return [];
+  }
+}
+
+/* YOUTUBE ID EXTRACTOR */
 function getYouTubeId(url) {
   if (!url) return null;
 
@@ -32,11 +37,14 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-function renderFeaturedTrailers() {
+/* RENDER TRAILERS */
+async function renderFeaturedTrailers() {
   const row = document.querySelector(".trailer-row");
   if (!row) return;
 
-  if (!Array.isArray(DAILY_TRAILERS) || DAILY_TRAILERS.length === 0) {
+  const trailers = await fetchFeaturedTrailers();
+
+  if (!trailers.length) {
     row.innerHTML = `
       <div class="no-trailer-msg">
         🎬 No trailers available right now. Check back soon!
@@ -47,32 +55,29 @@ function renderFeaturedTrailers() {
 
   row.innerHTML = "";
 
-  DAILY_TRAILERS.forEach(item => {
+  trailers.forEach(item => {
     const videoId = getYouTubeId(item.youtubeUrl);
 
+    const card = document.createElement("div");
+    card.className = "trailer-card";
 
     if (!videoId) {
-      const fallback = document.createElement("div");
-      fallback.className = "trailer-card";
-      fallback.innerHTML = `
+      card.innerHTML = `
         <div class="trailer-info">
           <h3>${item.title || "Trailer"}</h3>
           <p>Trailer not available at the moment.</p>
         </div>
       `;
-      row.appendChild(fallback);
+      row.appendChild(card);
       return;
     }
-
-    const card = document.createElement("div");
-    card.className = "trailer-card";
 
     card.innerHTML = `
       <div class="trailer-thumb">
         <img
           src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg"
-          alt="${item.title}"
-          onerror="this.src='assets/trailer-fallback.jpg'"
+          alt="${item.title || "Trailer"}"
+          onerror="this.onerror=null;this.src='assets/trailer-fallback.jpg';"
         />
         <div class="trailer-play">
           <span>▶</span>
@@ -81,7 +86,7 @@ function renderFeaturedTrailers() {
 
       <div class="trailer-info">
         <h3>${item.title}</h3>
-        <p>${item.description}</p>
+        <p>${item.description || "Watch trailer now"}</p>
       </div>
     `;
 
@@ -93,6 +98,7 @@ function renderFeaturedTrailers() {
   });
 }
 
+/* MODAL CONTROLS */
 function openTrailerModal(videoId) {
   const modal = document.getElementById("trailerModal");
   const frame = document.getElementById("trailerFrame");
@@ -113,6 +119,7 @@ function closeTrailerModal() {
   frame.src = "";
 }
 
+/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedTrailers();
 

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     setTimeout(() => {
-      if (feed.children.length === 0) {
+      if (feed.children.length === 0 && loader) {
         loader.textContent = "Waking up server… please wait";
       }
     }, 4000);
