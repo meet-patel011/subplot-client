@@ -57,7 +57,8 @@ async function loadNews() {
 
         card.innerHTML = `
           <img class="news-image"
-               src="${article.image || 'assets/placeholder-news.jpg'}" />
+               src="${article.image || 'assets/placeholder-news.jpg'}"
+               onerror="this.onerror=null; this.src='assets/placeholder-news.png';" />
 
           <div class="news-content">
             <span class="news-tag">${article.source.name}</span>

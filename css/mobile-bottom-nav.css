@@ -144,5 +144,14 @@
   .mobile-browse-overlay .browse-card {
     padding: 12px 8px;
   }
+}
 
+@media (max-width: 768px) {
+  .mobile-profile img.mobile-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
 }

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     setupMobileBrowse();
     injectProfileIfLoggedIn();
-    highlightActiveTab();
 
   } catch (err) {
     console.error("Mobile navbar failed:", err);
@@ -23,7 +22,7 @@ function setupMobileBrowse() {
   console.log("Overlay:", overlay);
 
   if (!browseBtn || !overlay) {
-    console.error("❌ Mobile browse elements missing AFTER injection");
+    console.error("Mobile browse elements missing AFTER injection");
     return;
   }
 
@@ -39,30 +38,49 @@ function setupMobileBrowse() {
   });
 }
 
-function injectProfileIfLoggedIn() {
-  const token = localStorage.getItem("accessToken");
-  if (!token) return;
+async function injectProfileIfLoggedIn() {
+
+  const page = location.pathname.split("/").pop();
+  if (page !== "index.html" && page !== "details.html") return;
+
+  let user = window.AUTH_USER || null;
+
+  if (!user && typeof checkAuth === "function") {
+    user = await checkAuth();
+  }
+
+  if (!user) return;
 
   const nav = document.querySelector(".mobile-bottom-nav");
   if (!nav) return;
 
-  const profile = document.createElement("a");
-  profile.href = "profile.html";
-  profile.className = "nav-item";
+  if (nav.querySelector(".mobile-profile")) return;
+
+  const firstLetter = user.username.charAt(0).toUpperCase();
+  const colors = ['6366f1','ec4899','10b981','f59e0b','8b5cf6','ef4444','06b6d4','f97316'];
+  const colorIndex = user.username.charCodeAt(0) % colors.length;
+
+  const avatarSrc =
+    user.avatar ||
+    `https://ui-avatars.com/api/?name=${firstLetter}&background=${colors[colorIndex]}&color=fff&size=128&length=1`;
+
+  const profile = document.createElement("button");
+  profile.type = "button";
+  profile.className = "nav-item mobile-profile";
+
   profile.innerHTML = `
-    <img src="assets/profile.png" />
+    <img src="${avatarSrc}" class="mobile-avatar" />
     <span>You</span>
   `;
+
+
+  profile.addEventListener("click", () => {
+    if (typeof showAvatarUploadPopup === "function") {
+      showAvatarUploadPopup();
+    }
+  });
 
   nav.appendChild(profile);
 }
 
-function highlightActiveTab() {
-  const page = location.pathname.split("/").pop();
 
-  document.querySelectorAll(".mobile-bottom-nav a").forEach(a => {
-    if (a.getAttribute("href") === page) {
-      a.classList.add("active");
-    }
-  });
-}

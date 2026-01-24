@@ -3,7 +3,7 @@
   background:
     radial-gradient(
       1200px 500px at top center,
-      rgba(28, 36, 122, 0.242),
+      rgba(36, 65, 122, 0.502),
       rgba(0, 0, 0, 0.95)
     ),
     linear-gradient(
@@ -176,7 +176,7 @@
 
 @media (max-width: 480px) {
   .watchlist-page {
-    padding: 40px 54px;
+    padding: 70px 54px;
   }
 
   .watchlist-grid {
