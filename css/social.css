@@ -81,6 +81,11 @@
   background: #e5e7eb;
 }
 
+body.club-view .browse-by {
+  display: none !important;
+}
+
+
 /* TABLET */
 @media (max-width: 1024px) {
   .clubs-grid {
@@ -96,6 +101,22 @@
 @media (max-width: 480px) {
   .social-page {
     padding: 120px 16px 50px;
+    background:
+      radial-gradient(
+        240% 20% at 110% 0%,
+        rgba(151, 171, 166, 0.08),
+        rgba(148, 60, 220, 0.45),
+        rgba(11, 11, 156, 0.25) 45%,
+        transparent 75%
+      ),
+      linear-gradient(
+        to bottom,
+        #0e0e11 0%,
+        #0b0b0d 40%,
+        #000 100%
+      );
+
+    animation: bgFade 1.2s ease-out
   }
 
   .clubs-grid {
@@ -108,7 +129,7 @@
   }
 
   .club-content h2 {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .club-btn {

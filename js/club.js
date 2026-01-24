@@ -21,22 +21,22 @@ const clubData = {
   },
   marvel: {
     name: "Marvel",
-    desc: "A community for all Marvellous fans.",
+    desc: "From Phase One to the Multiverse.",
     image: "assets/images/marvel.png"
   },
   dc: {
     name: "DC",
-    desc: "A community for all Dark and Bold fans.",
+    desc: "Darker stories. Deeper debates.",
     image: "assets/images/dc.png"
   },
   anime: {
     name: "Anime",
-    desc: "A community for all Anime fans.",
+    desc: "Discuss battles, stories, and unforgettable characters.",
     image: "assets/images/anime.png"
   },
   gaming: {
     name: "Video Games",
-    desc: "A community for all Pro gamers",
+    desc: "Talk gameplay, lore, and legendary wins.",
     image: "assets/images/gaming.png"
   }
 };
