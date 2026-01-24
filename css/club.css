@@ -1,0 +1,149 @@
+.club-page {
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+.club-banner {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 24px 24px;
+  position: relative;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.95)
+  );
+  padding: 140px 24px 24px;
+}
+
+.banner-overlay h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.banner-overlay p {
+  color: #d1d5db;
+  max-width: 600px;
+}
+
+.post-box {
+  margin: 24px;
+  padding: 16px;
+  background: #0f0f0f;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.post-box textarea {
+  width: 100%;
+  min-height: 90px;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #333;
+}
+
+.post-box button {
+  margin-top: 10px;
+  background: #fff;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.club-feed {
+  padding: 0 24px;
+}
+
+.post {
+  padding: 16px;
+  background: #0f0f0f;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 16px;
+}
+
+.post-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.post-header img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+  .banner-overlay {
+    padding: 250px 16px 20px;
+  }
+
+  .club-page {
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 60px;
+  }
+
+  .club-banner {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 24px 24px;
+    position: relative;
+  }
+
+  .club-feed {
+    padding: 0 16px;
+  }
+
+  .post-box {
+    margin-top: 84px;
+    padding: 6px;
+    background: #0f0f0f;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .post-box textarea {
+    width: 100%;
+    min-height: 30px;
+    background: #111;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    border: 1px solid #333;
+  }
+
+  .post-box button {
+    margin: 10px;
+    background: #831d14;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .banner-overlay h1 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .banner-overlay p {
+    color: #d1d5db;
+    font-size: 10px;
+  }
+}  

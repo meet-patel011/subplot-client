@@ -3,75 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHBMXHHVVP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-EHBMXHHVVP');
   </script>
-  <title>Film Community & Discussions | The Subplot</title>
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/social.css" />
+
+  <title>Discover Clubs | The Subplot</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/social.css">
   <link rel="stylesheet" href="css/mobile-bottom-nav.css">
-  <script src="js/mobile-navbar.js"></script>  
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+  <script src="js/mobile-navbar.js"></script>
 </head>
+
 <body>
 
 <header class="navbar">
   <a href="index.html" class="logo">
-    <img src="assets/logo.png" />
+    <img src="assets/logo.png">
   </a>
-  <nav class="nav-right">
-    <a href="index.html">Home</a>
-  </nav>
 </header>
 
-  <main class="social-page">
+<main class="social-page">
 
-    <section class="post-box">
-      <textarea id="postContent" placeholder="Share a movie thought, meme, or trailer…"></textarea>
+  <h1 class="discover-title">Discover</h1>
+  <p class="discover-subtitle">
+    Explore communities and share your thoughts.
+  </p>
 
-      <div class="media-row">
-        <input type="file" id="mediaFile" accept="image/*,video/*">
-        <input id="postMedia" placeholder="Or paste image / video URL">
+  <div class="clubs-grid">
+
+    <div class="club-card" data-club="sports">
+      <div class="club-image">
+        <img src="assets/images/sports.png" alt="Sports">
       </div>
-
-      <button id="postBtn">Post</button>
-
-      <p class="hint">
-        💡 Share memes, trailers, opinions • Login required to post
-      </p>
-    </section>
-
-    <!-- new code -->
-    <div id="page-loader" class="page-loader hidden">
-      Loading community posts…
+      <div class="club-content">
+        <h2>Sports</h2>
+        <p>A community for all diehard Sports fans</p>
+        <button class="club-btn">Explore</button>
+      </div>
     </div>
-    <!-- end new code -->
 
-    <section id="feed"></section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2025 The Subplot</p>
-
-      <p class="footer-tagline">
-        Every Story Has a <span>Subplot</span>
-      </p>
+    <div class="club-card" data-club="world-cinema">
+      <div class="club-image">
+        <img src="assets/images/cinema.png" alt="World Cinema">
+      </div>
+      <div class="club-content">
+        <h2>Cinema</h2>
+        <p>A community for Cinephiles to discuss</p>
+        <button class="club-btn">Explore</button>
+      </div>
     </div>
-  </footer>
 
-  <script src="js/auth.js"></script>
-  <script src="js/social.js"></script>
+    <div class="club-card" data-club="marvel">
+      <div class="club-image">
+        <img src="assets/images/marvel.png" alt="Marvel">
+      </div>
+      <div class="club-content">
+        <h2>Marvel</h2>
+        <p>A community for Marvellous fans.</p>
+        <button class="club-btn">Explore</button>
+      </div>
+    </div>
 
+    <div class="club-card" data-club="dc">
+      <div class="club-image">
+        <img src="assets/images/dc.png" alt="DC">
+      </div>
+      <div class="club-content">
+        <h2>DC</h2>
+        <p>A community for all Dark and Bold fans.</p>
+        <button class="club-btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="club-card" data-club="anime">
+      <div class="club-image">
+        <img src="assets/images/anime.png" alt="Anime">
+      </div>
+      <div class="club-content">
+        <h2>Anime Club</h2>
+        <p>A community for all Anime fans</p>
+        <button class="club-btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="club-card" data-club="gaming">
+      <div class="club-image">
+        <img src="assets/images/gaming.png" alt="Gaming">
+      </div>
+      <div class="club-content">
+        <h2>Gaming Hub</h2>
+        <p>A community for all Pro gamers</p>
+        <button class="club-btn">Explore</button>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="js/social.js"></script>
 </body>
 </html>

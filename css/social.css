@@ -1,269 +1,123 @@
 .social-page {
-  position: relative;
-  max-width: 700px;
+  max-width: 1200px;
   margin: auto;
-  padding: 160px 30px 40px;
-  background-color: #0a0a0a;
-  overflow: hidden;
+  padding: 140px 24px 60px;
 }
 
-.social-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background:
-    radial-gradient(
-      70% 50% at 50% 30%,
-      rgba(220, 60, 60, 0.45),
-      rgba(120, 20, 20, 0.25) 45%,
-      transparent 95%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(120, 20, 20, 0.45) 0%,
-      #000 100%
-    );
-}
-
-.social-page > * {
-  position: relative;
-  z-index: 1;
-}
-
-.nav-right a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-.nav-right a:hover {
-  opacity: 1;
-  color: #ff4d4d;
-}
-
-.post-box textarea,
-.post-box input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #111;
-  color: #fff;
-  border: 1px solid #333;
-}
-
-.post-box textarea:focus,
-.post-box input:focus {
-  outline: none;
-  border-color: rgba(255, 80, 80, 0.6);
-}
-
-.post-box button {
-  background: linear-gradient(180deg, #c81f1f, #8f1414);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  border: none;
-  cursor: pointer;
-}
-
-.post-box button:hover {
-  filter: brightness(1.1);
-}
-
-.hint {
-  color: #888;
-  font-size: 12px;
-  margin-top: 8px;
-}
-
-.post {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.04),
-      rgba(255,255,255,0.01)
-    ),
-    #0f0f0f;
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.post-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.discover-title {
+  font-size: 28px;
   margin-bottom: 6px;
 }
 
-.post-header img {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+.discover-subtitle {
+  font-size: 15px;
+  color: #9ca3af;
+  margin-bottom: 32px;
 }
 
-.post-media {
-  max-width: 100%;
-  max-height: 240px;
+.clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* CARD */
+.club-card {
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE */
+.club-image {
+  width: 100%;
+  height: 190px;
+}
+
+.club-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  margin-top: 12px;
+  display: block;
 }
 
-.media-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+/* CONTENT */
+.club-content {
+  padding: 18px;
+  background: #000;
 }
 
-.post-date {
-  font-size: 12px;
-  color: #facc15;
-  margin-bottom: 10px;
+.club-content h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
 }
 
-.post p {
-  font-weight: 400;
-  line-height: 1.6;
+.club-content p {
+  font-size: 13px;
+  color: #d1d5db;
+  line-height: 1.5;
   margin-bottom: 14px;
 }
 
-.comment-box {
-  margin-top: 14px;
-}
-
-.comment-input {
-  width: 75%;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: #111;
-  color: #fff;
-  border: 1px solid #333;
-}
-
-.comment-input:focus {
-  outline: none;
-  border-color: rgba(255, 80, 80, 0.6);
-}
-
-.comment-btn {
-  padding: 8px 14px;
-  margin-left: 6px;
-  border-radius: 8px;
+/* BUTTON */
+.club-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
-  background: linear-gradient(180deg, #c81f1f, #8f1414);
-  color: white;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
   cursor: pointer;
 }
 
-.comment-btn:hover {
-  filter: brightness(1.1);
+.club-btn:hover {
+  background: #e5e7eb;
 }
 
-.comments {
-  margin-top: 10px;
-}
-
-.comment {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-.comment img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.comment strong {
-  font-size: 13px;
-}
-
-
-@media (max-width: 768px) {
-  .social-page {
-    padding: 120px 16px 40px;
+/* TABLET */
+@media (max-width: 1024px) {
+  .clubs-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .nav-right {
-    display: none;
-  }
-  
-  .post-box textarea,
-  .post-box input {
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 10px;
-    margin-bottom: 12px;
-  }
-
-  .post-box button {
-    padding: 9px 15px;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-bottom: 28px;
-  }
-
-  .post {
-    padding: 16px;
-    border-radius: 18px;
-    margin-top: 20px;
-  }
-
-  .post-media {
-    max-height: 280px;
-  }
-
-  .comment-input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-
-  .comment-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin-left: 0;
-  }
-
-  .comment {
-    gap: 10px;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  .comment img {
-    width: 32px;
-    height: 32px;
+  .club-image {
+    height: 170px;
   }
 }
 
+/* MOBILE */
 @media (max-width: 480px) {
-  .post p {
-    font-size: 14px;
+  .social-page {
+    padding: 120px 16px 50px;
   }
-}
 
-.page-loader {
-  padding: 30px 16px;
-  text-align: center;
-  font-size: 14px;
-  color: #aaa;
-}
+  .clubs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 
-.page-loader.hidden {
-  display: none;
+  .club-image {
+    height: 150px;
+  }
+
+  .club-content h2 {
+    font-size: 18px;
+  }
+
+  .club-btn {
+    padding: 5px;
+    font-size: 11px;
+    border-radius: 12px;
+  }
+
+  .club-content p {
+    font-size: 10px;
+  }
 }

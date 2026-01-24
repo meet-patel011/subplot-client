@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Club | The Subplot</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/club.css">
+  <link rel="stylesheet" href="css/mobile-bottom-nav.css">
+
+  <script src="js/mobile-navbar.js"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="social.html" class="logo">
+    <img src="assets/logo.png">
+  </a>
+</header>
+
+<main class="club-page">
+
+  <section id="club-banner" class="club-banner">
+    <div class="banner-overlay">
+      <h1 id="clubName"></h1>
+      <p id="clubDesc"></p>
+    </div>
+  </section>
+
+  <section class="post-box">
+    <textarea id="postContent" placeholder="Share your thoughts here.."></textarea>
+    <button id="postBtn">Post</button>
+  </section>
+
+  <section id="feed" class="club-feed"></section>
+
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/club.js"></script>
+</body>
+</html>
