@@ -128,58 +128,77 @@ Bottom fade
   );
 }
 
-@media (max-width: 900px) {
-  .compare-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 768px) {
+
   .compare-page {
-    padding: 72px 16px 40px;
+    padding: 72px 12px 40px;
   }
+
   .compare-page h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-bottom: 6px;
   }
+
   .compare-sub {
-    font-size: 14px;
-    margin-bottom: 24px;
+    font-size: 9px;
+    margin-bottom: 20px;
   }
+
+
   .compare-select {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 28px;
+    flex-direction: flex;
+    gap: 8px;
+    margin-bottom: 22px;
   }
+
   .compare-select input {
-    padding: 14px 16px;
-    border-radius: 12px;
-    font-size: 15px;
+    padding: 13px 14px;
+    font-size: 9px;
+    border-radius: 10px;
   }
+
   .compare-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
+
   .compare-card {
-    padding: 18px;
-    border-radius: 16px;
+    padding: 12px;
+    border-radius: 14px;
   }
+
   .compare-poster {
-    width: 60%;
-    margin-bottom: 16px;
+    width: 100%;
+    max-width: 110px;
+    margin: 0 auto 12px;
   }
+
   .compare-title {
-    font-size: 18px;
+    font-size: 15px;
+    text-align: center;
   }
+
   .compare-meta {
-    font-size: 13px;
-    margin-bottom: 14px;
+    font-size: 8px;
+    text-align: center;
+    margin-bottom: 10px;
   }
+
   .compare-section {
-    margin-top: 16px;
+    margin-top: 14px;
   }
+
+  .compare-section h4 {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+
   .compare-row {
-    font-size: 13px;
-    padding: 8px 0;
+    font-size: 9px;
+    padding: 6px 0;
+  }
+
+  .compare-row span:last-child {
+    font-weight: 500;
   }
 }

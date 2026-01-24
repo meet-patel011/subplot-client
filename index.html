@@ -99,6 +99,31 @@
   <!-- MAIN -->
   <main>
 
+    <!-- FEATURED TRAILERS -->
+    <section class="featured-trailers">
+      <h2 class="section-title">
+        <!-- <img src="assets/trailer.png" alt="Featured" /> -->
+        Featured Trailers
+      </h2>
+
+      <div class="trailer-row" id="trailerRow">
+        <!-- Trailer cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- TRAILER MODAL -->
+    <div class="trailer-modal hidden" id="trailerModal">
+      <div class="trailer-modal-content">
+        <button class="close-trailer" id="closeTrailer">✕</button>
+        <iframe
+          id="trailerFrame"
+          src=""
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
     <!-- WHAT SHOULD I WATCH TONIGHT LOADER -->
     <div id="watchTonightLoader" class="page-loader">
       <p>Waking up server… finding something good for you</p>
@@ -123,7 +148,7 @@
         <div class="watch-results hidden" id="watchResults"></div>
 
         <button class="change-btn hidden" id="changeMoodBtn">
-          Explore ⏷ 
+          Explore 
         </button>
 
         <div class="change-panel hidden" id="changePanel">
@@ -270,6 +295,7 @@
   </footer>
 
   <script src="js/youtubeMovies.js"></script>
+  <script src="js/featured-trailers.js"></script>
   <script src="js/mobile-navbar.js"></script>
   <script src="js/config.js"></script>
   <script src="js/auth.js"></script>

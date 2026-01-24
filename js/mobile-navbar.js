@@ -1,5 +1,3 @@
-console.log("✅ Mobile navbar JS loaded");
-
 document.addEventListener("DOMContentLoaded", async () => {
   if (window.innerWidth > 768) return;
 
@@ -8,13 +6,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const html = await res.text();
     document.body.insertAdjacentHTML("beforeend", html);
 
-    // ⬇️ NOW elements exist
     setupMobileBrowse();
     injectProfileIfLoggedIn();
     highlightActiveTab();
 
   } catch (err) {
-    console.error("❌ Mobile navbar failed:", err);
+    console.error("Mobile navbar failed:", err);
   }
 });
 

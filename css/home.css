@@ -819,7 +819,7 @@ main::after {
     background:
       radial-gradient(
         180% 20% at 50% 0%,
-        rgba(148, 60, 220, 0.25),
+        rgba(148, 60, 220, 0.411),
         rgba(7, 7, 116, 0.15) 35%,
         transparent 65%
       ),
@@ -1264,7 +1264,7 @@ main::after {
   }
 
 .home-search input {
-    height: 30px;
+    height: 40px;
     font-size: 11px;
   }
 
@@ -1336,5 +1336,237 @@ main::after {
 @media (max-width: 768px) {
   .browse-nav {
     display: none;
+  }
+}
+
+/* FEATURED TRAILERS SECTION */
+
+.featured-trailers {
+  max-width: 1300px;
+  margin: 20px auto 80px;
+  padding: 0 30px;
+}
+
+.featured-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+/* Horizontal row */
+.trailer-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scroll-behavior: smooth;
+}
+
+.trailer-row::-webkit-scrollbar {
+  display: none;
+}
+
+.trailer-card {
+  min-width: 420px;
+  max-width: 420px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.015)
+    ),
+    linear-gradient(
+      145deg,
+      #0f0f14,
+      #060608
+    );
+  color: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 
+    0 18px 40px rgba(0,0,0,0.6),
+    insert 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trailer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+}
+
+.trailer-thumb {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.trailer-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Play button */
+.trailer-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+}
+
+.trailer-play span {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+}
+
+/* Content */
+.trailer-info {
+  padding: 16px;
+}
+
+.trailer-info h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.trailer-info p {
+  font-size: 14px;
+  color: #b5b5b5;
+  line-height: 1.5;
+}
+
+.trailer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trailer-modal.hidden {
+  display: none;
+}
+
+.trailer-modal-content {
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.trailer-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-trailer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+
+  .featured-trailers {
+    margin: 8px 0 26px;
+    padding: 0 14px;
+  }
+
+  .featured-title {
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+
+  .trailer-card {
+    min-width: 72%;
+    max-width: 72%;
+    border-radius: 10px;
+  }
+
+  .trailer-thumb {
+    height: 160px;
+  }
+
+  .trailer-info {
+    padding: 12px 14px 14px;
+  }
+
+  .trailer-info h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .trailer-info p {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #bdbdbdad;
+  }
+
+  .trailer-play span {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .trailer-modal-content {
+    width: 94%;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .featured-trailers {
+    padding: 0 19px;
+  }
+
+  .featured-title {
+    font-size: 16px;
+  }
+
+  .trailer-card {
+    min-width: 82%;
+    max-width: 82%;
+  }
+
+  .trailer-thumb {
+    height: 145px; 
+  }
+
+  .trailer-info h3 {
+    font-size: 13px;
+  }
+
+  .trailer-info p {
+    font-size: 7px;
   }
 }

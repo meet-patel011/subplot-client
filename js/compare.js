@@ -59,7 +59,7 @@ function renderCard(data, type, container) {
 
     <div class="compare-section">
       <h4>Content</h4>
-      <div class="compare-row"><span>Genres</span><span>${data.genres.map(g => g.name).join(", ")}</span></div>
+      <div class="compare-row"><span>Genres-</span><span>${data.genres.map(g => g.name).join(", ")}</span></div>
       <div class="compare-row"><span>Runtime</span><span>${data.runtime || data.episode_run_time?.[0] || "N/A"} min</span></div>
       <h6 style="
         margin: 6px 0 10px;
