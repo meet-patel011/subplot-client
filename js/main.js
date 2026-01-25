@@ -1,6 +1,21 @@
 const BACKEND = API_BASE.replace("/api", "");
 
-/* HORIZONTAL SCROLL (ROWS ONLY)*/
+/* APP LOADER CONTROL */
+function hideAppLoaderOnce() {
+  const loader = document.getElementById("app-loader");
+  if (!loader) return;
+
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.remove();
+    document.body.classList.remove("app-loading");
+  }, 300);
+}
+
+setTimeout(hideAppLoaderOnce, 6000);
+
+
+/* HORIZONTAL SCROLL */
 document.querySelectorAll(".row").forEach((row) => {
   row.addEventListener(
     "wheel",
@@ -749,5 +764,18 @@ function renderHomepageNews(articles) {
 loadHomepageNews();
 
 
+/* LOAD SIGNAL */
+let __initialLoadDone = false;
+
+function signalInitialLoad() {
+  if (__initialLoadDone) return;
+  __initialLoadDone = true;
+  hideAppLoaderOnce();
+}
+
+/* Signal after DOM + async tasks */
+window.addEventListener("load", () => {
+  setTimeout(signalInitialLoad, 800);
+});
 
 

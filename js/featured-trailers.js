@@ -44,7 +44,7 @@ async function renderFeaturedTrailers() {
   if (!trailers.length) {
     row.innerHTML = `
       <div class="no-trailer-msg">
-        No trailers available right now. Check back soon!
+        No trailers available. Refresh the page!
       </div>
     `;
     return;
