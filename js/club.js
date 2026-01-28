@@ -68,15 +68,25 @@ async function loadPosts() {
     json.posts.forEach(p => {
       const div = document.createElement("div");
       div.className = "post";
+
       div.innerHTML = `
         <div class="post-header">
           <img src="${p.user.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(p.user.username)}`}">
           <strong>${p.user.username}</strong>
         </div>
-        <p>${p.content}</p>
+
+        <p class="post-content">${p.content.replace(/\n/g, "<br>")}</p>
+
+        <div class="post-actions">
+          <button class="like-btn" data-id="${p._id}">
+            ❤️ <span class="like-count">${p.likes?.length || 0}</span>
+          </button>
+        </div>
       `;
+
       feed.appendChild(div);
     });
+
   } catch (err) {
     console.error("Failed to load posts", err);
   }
@@ -108,3 +118,23 @@ document.getElementById("postBtn").addEventListener("click", async () => {
 });
 
 loadPosts();
+
+document.addEventListener("click", async (e) => {
+  if (!e.target.closest(".like-btn")) return;
+
+  const btn = e.target.closest(".like-btn");
+  const postId = btn.dataset.id;
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/clubs/${club}/like/${postId}`, {
+      method: "POST",
+      credentials: "include"
+    });
+
+    const data = await res.json();
+    btn.querySelector(".like-count").innerText = data.likes;
+    btn.disabled = true;
+  } catch (err) {
+    console.error(err);
+  }
+});

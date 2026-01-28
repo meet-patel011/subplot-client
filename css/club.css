@@ -106,6 +106,23 @@
   margin-top: 20px;
 }
 
+.post-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.like-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.post-content {
+  white-space: pre-wrap;
+}
 
 @media (max-width: 480px) {
 
