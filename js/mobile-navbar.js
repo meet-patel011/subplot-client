@@ -64,6 +64,7 @@ async function injectProfileIfLoggedIn() {
     user.avatar ||
     `https://ui-avatars.com/api/?name=${firstLetter}&background=${colors[colorIndex]}&color=fff&size=128&length=1`;
 
+  // PROFILE BUTTON
   const profile = document.createElement("button");
   profile.type = "button";
   profile.className = "nav-item mobile-profile";
@@ -73,7 +74,6 @@ async function injectProfileIfLoggedIn() {
     <span>You</span>
   `;
 
-
   profile.addEventListener("click", () => {
     if (typeof showAvatarUploadPopup === "function") {
       showAvatarUploadPopup();
@@ -82,5 +82,6 @@ async function injectProfileIfLoggedIn() {
 
   nav.appendChild(profile);
 }
+
 
 

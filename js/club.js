@@ -120,21 +120,36 @@ document.getElementById("postBtn").addEventListener("click", async () => {
 loadPosts();
 
 document.addEventListener("click", async (e) => {
-  if (!e.target.closest(".like-btn")) return;
-
   const btn = e.target.closest(".like-btn");
+  if (!btn) return;
+
   const postId = btn.dataset.id;
 
+  // guest protection
+  const liked = JSON.parse(localStorage.getItem("liked_posts") || "[]");
+  if (liked.includes(postId)) return;
+
   try {
-    const res = await fetch(`${BACKEND_URL}/api/clubs/${club}/like/${postId}`, {
-      method: "POST",
-      credentials: "include"
-    });
+    const token = localStorage.getItem("accessToken");
+
+    const res = await fetch(
+      `${BACKEND_URL}/api/clubs/${club}/like/${postId}`,
+      {
+        method: "POST",
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      }
+    );
+
+    if (!res.ok) throw new Error("Like failed");
 
     const data = await res.json();
     btn.querySelector(".like-count").innerText = data.likes;
     btn.disabled = true;
+
+    liked.push(postId);
+    localStorage.setItem("liked_posts", JSON.stringify(liked));
   } catch (err) {
     console.error(err);
   }
 });
+

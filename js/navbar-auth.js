@@ -108,6 +108,19 @@ function showAvatarUploadPopup() {
     document.body.removeChild(overlay);
   });
 
+  // LOGOUT BUTTON 
+  const logoutBtn = document.createElement("button");
+  logoutBtn.type = "button";
+  logoutBtn.className = "nav-item mobile-logout-btn";
+  logoutBtn.innerText = "Logout";
+
+  logoutBtn.addEventListener("click", () => {
+    if (typeof logout === "function") {
+      logout();
+    }
+  });
+  popup.appendChild(logoutBtn);
+  
   // Choose button
   popup.querySelector("#chooseBtn").addEventListener("click", () => {
     popup.querySelector("#avatarInput").click();
